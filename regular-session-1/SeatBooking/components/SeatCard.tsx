@@ -1,15 +1,22 @@
 import React from "react";
 import { Seat } from "../App";
-import { StyleSheet, Text, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 
 interface SeatProps {
   seat: Seat;
+  onClick: (seatNumber: number) => void;
 }
-const SeatCard = ({ seat }: SeatProps) => {
+const SeatCard = ({ seat, onClick }: SeatProps) => {
+  let seatStatusColor = "blue";
+  if (seat.isBooked) seatStatusColor = "gray";
+  else if (seat.isSelected) seatStatusColor = "red";
   return (
-    <View style={style.cardContainer}>
+    <Pressable
+      onPress={() => onClick(seat.seatNumber)}
+      style={[style.cardContainer, { backgroundColor: seatStatusColor }]}
+    >
       <Text style={style.title}>{seat.seatNumber}</Text>
-    </View>
+    </Pressable>
   );
 };
 
@@ -23,11 +30,10 @@ const style = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  title:{
-    fontSize:24,
-    fontWeight:"bold",
-
-  }
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+  },
 });
 
 export default SeatCard;
