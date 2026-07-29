@@ -70,7 +70,9 @@ export default function App() {
     ]);
   };
   return (
+    // SafeAreaView: giúp nội dung của app nằm bên trong không đè lên các thành phần mặc định
     <SafeAreaView style={styles.container}>
+      {/* thư viện nút chọn */}
       <FlatList
         data={seats}
         numColumns={4}
