@@ -5,6 +5,7 @@ import { Car } from "./lab03/Car";
 import { Rectangle } from "./lab04/Rectangle";
 import { BankAccount } from "./lab05/BankAccount";
 import { Book } from "./lab06/Book";
+import { User } from "./lab07/User";
 
 // --- Lap 01 ---
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
@@ -76,3 +77,16 @@ const book = new Book(
   2026,
 );
 book.display();
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// --- Lap 07 ---
+// 7. Write a class User with private property name and getter/setter
+console.log();
+console.log("--- Test Lab 07 ---");
+const user = new User("Nguyen Nam Trung Nguyen");
+console.log(user.getName());
+
+user.setName("Trung Nguyen");
+console.log(user.getName());
