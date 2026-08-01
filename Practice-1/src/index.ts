@@ -6,6 +6,7 @@ import { Rectangle } from "./lab04/Rectangle";
 import { BankAccount } from "./lab05/BankAccount";
 import { Book } from "./lab06/Book";
 import { User } from "./lab07/User";
+import { Product } from "./lab08/Product";
 
 // --- Lap 01 ---
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
@@ -87,6 +88,27 @@ console.log();
 console.log("--- Test Lab 07 ---");
 const user = new User("Nguyen Nam Trung Nguyen");
 console.log(user.getName());
-
 user.setName("Trung Nguyen");
 console.log(user.getName());
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// --- Lap 08 ---
+// 8. Create a Product class with name, price. Create an array of products and filter products with price > 100
+console.log();
+console.log("--- Test Lab 08 ---");
+const products: Product[] = [
+  new Product("Laptop", 5500),
+  new Product("Mobile phone", 2500),
+  new Product("Mouse", 22500),
+  new Product("Keyboard", 12500),
+  new Product("Keyboard", 30),
+];
+console.log("Cach 1");
+const expensiveProducts = products.filter((product) => product.price > 100);
+console.log(expensiveProducts);
+
+console.log("Cach 2");
+const product = new Product("", 0);
+product.filterProduct(products);
