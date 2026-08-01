@@ -4,6 +4,7 @@ import { Student } from "./lab02/Student";
 import { Car } from "./lab03/Car";
 import { Rectangle } from "./lab04/Rectangle";
 import { BankAccount } from "./lab05/BankAccount";
+import { Book } from "./lab06/Book";
 
 // --- Lap 01 ---
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
@@ -48,7 +49,7 @@ console.log(`Perimeter: ${rectangle.perimeter()}`);
 // --- Lap 05 ---
 // 5. Create a class BankAccount with balance. Add methods deposit() and withdraw().
 console.log();
-console.log("--- Test Lab 04 ---");
+console.log("--- Test Lab 05 ---");
 
 const bankAccount = new BankAccount(1000000);
 console.log("So tien ban dau:", bankAccount.balance);
@@ -61,3 +62,17 @@ let rut = 900000;
 console.log("Rut tien:", rut);
 bankAccount.withdraw(rut);
 console.log("Money current:", bankAccount.balance);
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// --- Lap 06 ---
+// 6. Create a class Book with attributes title, author, year
+console.log();
+console.log("--- Test Lab 06 ---");
+const book = new Book(
+  "Effort is always rewarded",
+  "Nguyen Nam Trung Nguyen",
+  2026,
+);
+book.display();
