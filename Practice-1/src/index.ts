@@ -7,6 +7,7 @@ import { BankAccount } from "./lab05/BankAccount";
 import { Book } from "./lab06/Book";
 import { User } from "./lab07/User";
 import { Product } from "./lab08/Product";
+import { Cat, Dog } from "./lab09/Animal";
 
 // --- Lap 01 ---
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
@@ -112,3 +113,19 @@ console.log(expensiveProducts);
 console.log("Cach 2");
 const product = new Product("", 0);
 product.filterProduct(products);
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// --- Lap 09 ---
+// 9. Define an interface Animal with name and method sound().
+console.log();
+console.log("--- Test Lab 09 ---");
+const dog = new Dog("Buddy");
+const cat = new Cat("Kitty");
+
+console.log(dog.name);
+dog.sound();
+
+console.log(cat.name);
+cat.sound();
