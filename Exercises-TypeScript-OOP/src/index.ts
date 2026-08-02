@@ -9,6 +9,7 @@ import { User } from "./lab07/User";
 import { Product } from "./lab08/Product";
 import { Cat, Dog } from "./lab09/Animal";
 import { Account } from "./lab10/Account";
+import { Cats, Dogs } from "./lab11/Animal";
 
 // --- Lap 01 ---
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
@@ -143,3 +144,108 @@ account.showInfo();
 account.deposit(5000000);
 account.showInfo();
 account.owner = "Nguyen Van A";
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// 11. Create a base class Animal. Extend Dog and Cat classes with methods bark() and meow().
+console.log();
+console.log("--- Test Lab 11 ---");
+const dogs = new Dogs("Su");
+dogs.bark();
+const cats = new Cats("Gold");
+cats.meow();
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// 12. Define interfaces Flyable and Swimmable. Implement them in Bird and Fish classes.
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// 13. Create an abstract class Shape with method area(). Implement Square and Circle.
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// 14. Create a base class Employee. Extend Manager and Developer with specific methods.
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// 15. Create a Library class that can store Book and User objects. Add method to add books.
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// 16. Create a generic class Box that can store any type of value.
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// 17. Write a singleton Logger class that logs messages to console.
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// 18. Create a static class MathUtil with methods add(), subtract(), multiply(), divide().
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// 19. Demonstrate method overriding using polymorphism with Animal and subclasses.
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// 20. Write a Vehicle interface and implement it in Car and Bike classes.
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// 21. Create a generic Repository class with methods add(), getAll().
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// 22. Create a class Stack with push, pop, peek, isEmpty methods.
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// 23. Create an interface Payment with method pay(amount). Implement CashPayment and CardPayment.
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// 24. Create an abstract class Appliance with method turnOn(). Implement Fan and AirConditioner.
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// 25. Create a class Shape with a static method describe().
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// 26. Create a class Order with list of products. Add method to calculate total price.
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// 27. Create a class Teacher that extends Person. Add subject attribute and introduce method.
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// 28. Create a class Animal with protected method makeSound(). Extend Dog and Cat to override it.
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// 29. Create an interface Movable with method move(). Implement it in Car and Robot.
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// 30. Create a class School with list of Students and Teachers. Add method to display info.
