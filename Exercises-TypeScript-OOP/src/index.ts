@@ -8,6 +8,7 @@ import { Book } from "./lab06/Book";
 import { User } from "./lab07/User";
 import { Product } from "./lab08/Product";
 import { Cat, Dog } from "./lab09/Animal";
+import { Account } from "./lab10/Account";
 
 // --- Lap 01 ---
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
@@ -129,3 +130,16 @@ dog.sound();
 
 console.log(cat.name);
 cat.sound();
+
+// ----------------------------------------------------------------------------- //
+// ----------------------------------------------------------------------------- //
+
+// --- Lap 10 ---
+// 10. Create a class Account with public, private and readonly fields.
+console.log();
+console.log("--- Test Lab 10 ---");
+const account = new Account("Nguyen Nam Trung Nguyen", 10000000, "ACC001");
+account.showInfo();
+account.deposit(5000000);
+account.showInfo();
+account.owner = "Nguyen Van A";
