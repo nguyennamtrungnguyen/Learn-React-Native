@@ -492,6 +492,26 @@ console.log("Users:", library.getUsers());
 // ----------------------------------------------------------------------------- //
 
 // 16. Create a generic class Box that can store any type of value.
+class Box<T> {
+  constructor(private value: T) {}
+  getValue(): T {
+    return this.value;
+  }
+
+  setValue(value: T): void {
+    this.value = value;
+  }
+}
+console.log();
+console.log("--- Test Lap 16 ---");
+const numberBox = new Box<number>(100);
+console.log(numberBox.getValue());
+numberBox.setValue(200);
+console.log(numberBox.getValue());
+const stringBox = new Box<string>("Hello");
+console.log(stringBox.getValue());
+const booleanBox = new Box<boolean>(true);
+console.log(booleanBox.getValue());
 
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
