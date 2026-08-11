@@ -385,10 +385,10 @@ class Circle extends Shape {
 }
 console.log();
 console.log("--- Test Lap 13 ---");
-const square = new Square(29);
+const square = new Square(Math.floor(Math.random() * 11) + 20);
 console.log("Square area: ", square.area());
 
-const circle = new Circle(20);
+const circle = new Circle(Math.floor(Math.random() * 11) + 20);
 console.log("Circle area: ", circle.area());
 
 // ----------------------------------------------------------------------------- //
