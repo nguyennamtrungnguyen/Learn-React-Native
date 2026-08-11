@@ -408,17 +408,20 @@ class Employee {
 
 class Manager extends Employee {
   manageTeam(): void {
-    console.log(`${this.name} is managing the team with the salary is: ${this.salary} $`);
+    console.log(
+      `${this.name} is managing the team with the salary is: ${this.salary} $`,
+    );
   }
 }
 
 class Developer extends Employee {
   writeCode(): void {
-    console.log(`${this.name} is writing code with the salary is: ${this.salary} $`);
+    console.log(
+      `${this.name} is writing code with the salary is: ${this.salary} $`,
+    );
   }
 }
 
-// Test
 console.log();
 console.log("--- Test Lap 14 ---");
 
@@ -434,6 +437,56 @@ developer.writeCode();
 // ----------------------------------------------------------------------------- //
 
 // 15. Create a Library class that can store Book and User objects. Add method to add books.
+class BookInTheLap15 {
+  constructor(
+    public title: string,
+    public name: string,
+  ) {}
+}
+
+class UserInTheLap15 {
+  constructor(public name: string) {}
+}
+
+class Library {
+  private books: BookInTheLap15[] = [];
+  private users: UserInTheLap15[] = [];
+
+  addBook(book: BookInTheLap15): void {
+    this.books.push(book);
+  }
+
+  addUser(user: UserInTheLap15): void {
+    this.users.push(user);
+  }
+
+  getBooks(): BookInTheLap15[] {
+    return this.books;
+  }
+
+  getUsers(): UserInTheLap15[] {
+    return this.users;
+  }
+}
+
+console.log();
+console.log("--- Test Lap 15 ---");
+const library = new Library();
+
+const book1 = new BookInTheLap15("Clean Code", "Robert Martin");
+const book2 = new BookInTheLap15("Design Patterns", "GoF");
+
+const user1 = new UserInTheLap15("Nguyen");
+const user2 = new UserInTheLap15("An");
+
+library.addBook(book1);
+library.addBook(book2);
+
+library.addUser(user1);
+library.addUser(user2);
+
+console.log("Books:", library.getBooks());
+console.log("Users:", library.getUsers());
 
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
