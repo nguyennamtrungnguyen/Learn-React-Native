@@ -398,23 +398,23 @@ console.log("Circle area: ", circle.area());
 class Employee {
   constructor(
     public name: string,
-    public salary: number
+    public salary: number,
   ) {}
 
   work(): void {
-    console.log(`${this.name} is working`);
+    console.log(`${this.name} is working with the salary ${this.salary} $`);
   }
 }
 
 class Manager extends Employee {
   manageTeam(): void {
-    console.log(`${this.name} is managing the team`);
+    console.log(`${this.name} is managing the team with the salary is: ${this.salary} $`);
   }
 }
 
 class Developer extends Employee {
   writeCode(): void {
-    console.log(`${this.name} is writing code`);
+    console.log(`${this.name} is writing code with the salary is: ${this.salary} $`);
   }
 }
 
