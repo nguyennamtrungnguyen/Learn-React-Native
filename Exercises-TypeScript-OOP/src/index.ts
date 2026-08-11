@@ -1,6 +1,6 @@
 // --- Lap 01 ---
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
-export class Person {
+class Person {
   constructor(
     public name: string,
     public age: number,
@@ -21,7 +21,7 @@ person.display();
 
 // --- Lap 02 ---
 // 2. Write a class Student extending Person with an additional attribute grade. Add a method to
-export class Student extends Person {
+class Student extends Person {
   constructor(
     name: string,
     age: number,
@@ -46,7 +46,7 @@ student.display();
 
 // --- Lap 03 ---
 // 3. Create a class Car with properties brand, model, year. Write a method to show car info.
-export class Car {
+class Car {
   constructor(
     public brand: string,
     public model: string,
@@ -70,7 +70,7 @@ car.ShowCarInfo();
 
 // --- Lap 04 ---
 // 4. Create a class Rectangle with width and height. Write a method to calculate area and perimeter.
-export class Rectangle {
+class Rectangle {
   constructor(
     public width: number,
     public height: number,
@@ -95,7 +95,7 @@ console.log(`Perimeter: ${rectangle.perimeter()}`);
 
 // --- Lap 05 ---
 // 5. Create a class BankAccount with balance. Add methods deposit() and withdraw().
-export class BankAccount {
+class BankAccount {
   constructor(public balance: number) {}
 
   deposit(amount: number): number {
@@ -126,7 +126,7 @@ console.log("Money current:", bankAccount.balance);
 
 // --- Lap 06 ---
 // 6. Create a class Book with attributes title, author, year
-export class Book {
+class Book {
   constructor(
     public title: string,
     public author: string,
@@ -159,7 +159,7 @@ book.display();
 
 // --- Lap 07 ---
 // 7. Write a class User with private property name and getter/setter
-export class User {
+class User {
   private name: string;
   constructor(name: string) {
     this.name = name;
@@ -188,7 +188,7 @@ console.log(user.getName());
 
 // --- Lap 08 ---
 // 8. Create a Product class with name, price. Create an array of products and filter products with price > 100
-export class Product {
+class Product {
   constructor(
     public name: string,
     public price: number,
@@ -228,7 +228,7 @@ interface Animal {
   sound(): void;
 }
 
-export class Dog implements Animal {
+class Dog implements Animal {
   constructor(public name: string) {}
 
   sound(): void {
@@ -236,7 +236,7 @@ export class Dog implements Animal {
   }
 }
 
-export class Cat implements Animal {
+class Cat implements Animal {
   constructor(public name: string) {}
 
   sound(): void {
@@ -260,7 +260,7 @@ cat.sound();
 
 // --- Lap 10 ---
 // 10. Create a class Account with public, private and readonly fields.
-export class Account {
+class Account {
   public owner: string;
   private balance: number;
   readonly accountNumber: string;
@@ -303,13 +303,13 @@ class Annimal {
   }
 }
 
-export class Dogs extends Annimal {
+class Dogs extends Annimal {
   bark(): void {
     console.log(`${this.name}: says Woof!`);
   }
 }
 
-export class Cats extends Annimal {
+class Cats extends Annimal {
   meow(): void {
     console.log(`${this.name}: says Meow!`);
   }
@@ -326,6 +326,34 @@ cats.meow();
 // ----------------------------------------------------------------------------- //
 
 // 12. Define interfaces Flyable and Swimmable. Implement them in Bird and Fish classes.
+
+interface Flyable {
+  fly(): void;
+}
+
+interface Swimmable {
+  swim(): void;
+}
+
+class Bird implements Flyable {
+  fly(): void {
+    console.log("Bird is flying");
+  }
+}
+
+class Fish implements Swimmable {
+  swim(): void {
+    console.log("Fish is swimming");
+  }
+}
+
+console.log();
+console.log("--- Test Lap 12 ---");
+const bird = new Bird();
+bird.fly();
+
+const fish = new Fish();
+fish.swim();
 
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
