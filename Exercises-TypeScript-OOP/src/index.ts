@@ -395,6 +395,40 @@ console.log("Circle area: ", circle.area());
 // ----------------------------------------------------------------------------- //
 
 // 14. Create a base class Employee. Extend Manager and Developer with specific methods.
+class Employee {
+  constructor(
+    public name: string,
+    public salary: number
+  ) {}
+
+  work(): void {
+    console.log(`${this.name} is working`);
+  }
+}
+
+class Manager extends Employee {
+  manageTeam(): void {
+    console.log(`${this.name} is managing the team`);
+  }
+}
+
+class Developer extends Employee {
+  writeCode(): void {
+    console.log(`${this.name} is writing code`);
+  }
+}
+
+// Test
+console.log();
+console.log("--- Test Lap 14 ---");
+
+const manager = new Manager("Nguyen", 2000);
+manager.work();
+manager.manageTeam();
+
+const developer = new Developer("An", 1500);
+developer.work();
+developer.writeCode();
 
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
