@@ -1,20 +1,19 @@
-// Import
-import Person = require("./lab01/Person");
-import { Student } from "./lab02/Student";
-import { Car } from "./lab03/Car";
-import { Rectangle } from "./lab04/Rectangle";
-import { BankAccount } from "./lab05/BankAccount";
-import { Book } from "./lab06/Book";
-import { User } from "./lab07/User";
-import { Product } from "./lab08/Product";
-import { Cat, Dog } from "./lab09/Animal";
-import { Account } from "./lab10/Account";
-import { Cats, Dogs } from "./lab11/Animal";
-
 // --- Lap 01 ---
 // 1. Create a class Person with attributes name and age. Write a method to display this information.
+export class Person {
+  constructor(
+    public name: string,
+    public age: number,
+  ) {}
+
+  display(): void {
+    console.log(`Name: ${this.name}`);
+    console.log(`Age: ${this.age}`);
+  }
+}
+
 console.log("--- Test Lap 01 ---");
-const person = new Person.Person("Nguyen Nam Trung Nguyen", 21);
+const person = new Person("Nguyen Nam Trung Nguyen", 21);
 person.display();
 
 // ----------------------------------------------------------------------------- //
@@ -22,6 +21,21 @@ person.display();
 
 // --- Lap 02 ---
 // 2. Write a class Student extending Person with an additional attribute grade. Add a method to
+export class Student extends Person {
+  constructor(
+    name: string,
+    age: number,
+    public grade: string,
+  ) {
+    super(name, age);
+  }
+
+  display(): void {
+    super.display();
+    console.log(`Grade: ${this.grade}`);
+  }
+}
+
 console.log();
 console.log("--- Test Lab 02 ---");
 const student = new Student("Nguyen Nam Trung Nguyen", 21, "A");
@@ -32,6 +46,20 @@ student.display();
 
 // --- Lap 03 ---
 // 3. Create a class Car with properties brand, model, year. Write a method to show car info.
+export class Car {
+  constructor(
+    public brand: string,
+    public model: string,
+    public year: number,
+  ) {}
+
+  ShowCarInfo(): void {
+    console.log(`Brand: ${this.brand}`);
+    console.log(`Model: ${this.model}`);
+    console.log(`Year: ${this.year}`);
+  }
+}
+
 console.log();
 console.log("--- Test Lab 03 ---");
 const car = new Car("Mercedes", "Maybach SL 680", 2024);
@@ -42,6 +70,20 @@ car.ShowCarInfo();
 
 // --- Lap 04 ---
 // 4. Create a class Rectangle with width and height. Write a method to calculate area and perimeter.
+export class Rectangle {
+  constructor(
+    public width: number,
+    public height: number,
+  ) {}
+
+  area(): number {
+    return this.width * this.height;
+  }
+  perimeter(): number {
+    return (this.width + this.height) * 2;
+  }
+}
+
 console.log();
 console.log("--- Test Lab 04 ---");
 const rectangle = new Rectangle(3, 4);
@@ -53,6 +95,17 @@ console.log(`Perimeter: ${rectangle.perimeter()}`);
 
 // --- Lap 05 ---
 // 5. Create a class BankAccount with balance. Add methods deposit() and withdraw().
+export class BankAccount {
+  constructor(public balance: number) {}
+
+  deposit(amount: number): number {
+    return (this.balance += amount);
+  }
+  withdraw(amount: number): number {
+    return (this.balance -= amount);
+  }
+}
+
 console.log();
 console.log("--- Test Lab 05 ---");
 
@@ -73,6 +126,25 @@ console.log("Money current:", bankAccount.balance);
 
 // --- Lap 06 ---
 // 6. Create a class Book with attributes title, author, year
+export class Book {
+  constructor(
+    public title: string,
+    public author: string,
+    public year: number,
+  ) {}
+
+  display(): void {
+    console.log(
+      "Title",
+      this.title,
+      "| Author:",
+      this.author,
+      "| Year of publication:",
+      this.year,
+    );
+  }
+}
+
 console.log();
 console.log("--- Test Lab 06 ---");
 const book = new Book(
@@ -87,6 +159,23 @@ book.display();
 
 // --- Lap 07 ---
 // 7. Write a class User with private property name and getter/setter
+export class User {
+  private name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+
+  //Getter
+  public getName(): string {
+    return this.name;
+  }
+
+  //Setter
+  public setName(name: string): void {
+    this.name = name;
+  }
+}
+
 console.log();
 console.log("--- Test Lab 07 ---");
 const user = new User("Nguyen Nam Trung Nguyen");
@@ -99,6 +188,19 @@ console.log(user.getName());
 
 // --- Lap 08 ---
 // 8. Create a Product class with name, price. Create an array of products and filter products with price > 100
+export class Product {
+  constructor(
+    public name: string,
+    public price: number,
+  ) {}
+  filterProduct(products: Product[]): void {
+    const expensiveProducts = products.filter((product) => product.price > 100);
+    console.log("List products with price > 100:");
+    expensiveProducts.forEach((product) => {
+      console.log(`Name: ${product.name}, Price: ${product.price}`);
+    });
+  }
+}
 console.log();
 console.log("--- Test Lab 08 ---");
 const products: Product[] = [
@@ -121,6 +223,27 @@ product.filterProduct(products);
 
 // --- Lap 09 ---
 // 9. Define an interface Animal with name and method sound().
+interface Animal {
+  name: string;
+  sound(): void;
+}
+
+export class Dog implements Animal {
+  constructor(public name: string) {}
+
+  sound(): void {
+    console.log("Woof! Woof!");
+  }
+}
+
+export class Cat implements Animal {
+  constructor(public name: string) {}
+
+  sound(): void {
+    console.log("Meow! Meow!");
+  }
+}
+
 console.log();
 console.log("--- Test Lab 09 ---");
 const dog = new Dog("Buddy");
@@ -137,6 +260,30 @@ cat.sound();
 
 // --- Lap 10 ---
 // 10. Create a class Account with public, private and readonly fields.
+export class Account {
+  public owner: string;
+  private balance: number;
+  readonly accountNumber: string;
+
+  constructor(owner: string, balance: number, accountNumber: string) {
+    ((this.owner = owner),
+      (this.balance = balance),
+      (this.accountNumber = accountNumber));
+  }
+
+  deposit(amount: number): void {
+    this.balance += amount;
+    console.log(`Deposited: ${amount} VNĐ`);
+  }
+
+  showInfo(): void {
+    console.log("=== Account Information ===");
+    console.log(`Owner: ${this.owner}`);
+    console.log(`Account Number: ${this.accountNumber}`);
+    console.log(`Balance: $${this.balance}`);
+  }
+}
+
 console.log();
 console.log("--- Test Lab 10 ---");
 const account = new Account("Nguyen Nam Trung Nguyen", 10000000, "ACC001");
@@ -149,12 +296,32 @@ account.owner = "Nguyen Van A";
 // ----------------------------------------------------------------------------- //
 
 // 11. Create a base class Animal. Extend Dog and Cat classes with methods bark() and meow().
+class Annimal {
+  public name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+export class Dogs extends Annimal {
+  bark(): void {
+    console.log(`${this.name}: says Woof!`);
+  }
+}
+
+export class Cats extends Annimal {
+  meow(): void {
+    console.log(`${this.name}: says Meow!`);
+  }
+}
+
 console.log();
 console.log("--- Test Lab 11 ---");
 const dogs = new Dogs("Su");
 dogs.bark();
 const cats = new Cats("Gold");
 cats.meow();
+
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
 
