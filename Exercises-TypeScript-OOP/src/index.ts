@@ -756,9 +756,28 @@ console.log(Shape25.describe());
 // ----------------------------------------------------------------------------- //
 
 // 26. Create a class Order with list of products. Add method to calculate total price.
+class Order {
+  products: Product[];
+  constructor() {
+    this.products = [];
+  }
 
+  calculateTotalPrice(): number {
+    return this.products
+      .map((product) => product.price)
+      .reduce((total, price) => total + price, 0);
+  }
+}
 console.log();
 console.log("--- Test Lap 26 ---");
+
+const order = new Order();
+order.products.push(new Product("P1", 1000));
+order.products.push(new Product("P1", 2000));
+order.products.push(new Product("P1", 3000));
+order.products.push(new Product("P1", 4000));
+console.log(order.calculateTotalPrice());
+
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
 
