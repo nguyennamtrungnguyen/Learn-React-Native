@@ -861,6 +861,40 @@ console.log(robot.move());
 // ----------------------------------------------------------------------------- //
 
 // 30. Create a class School with list of Students and Teachers. Add method to display info.
+class School {
+  students: Student[];
+  teachers: Teacher[];
+
+  constructor(students: Student[], teachers: Teacher[]) {
+    this.students = students;
+    this.teachers = teachers;
+  }
+
+  display(): void {
+    console.log("Teachers list: ");
+    console.log(this.teachers);
+    console.log("Students list: ");
+    console.log(this.students);
+  }
+}
+
+const student1 = new Student("Nguyen", 23, "abc");
+const student2 = new Student("Lan", 25, "asdfgbc");
+const student3 = new Student("Huong", 22, "absdafc");
+const student4 = new Student("Trang", 21, "abhsdfgc");
+const student5 = new Student("Ngoc", 19, "trhabc");
+const teacher1 = new Teacher("Nguyen", 23, "abc");
+const teacher2 = new Teacher("Lan", 25, "asdfgbc");
+const teacher3 = new Teacher("Huong", 22, "absdafc");
+const teacher4 = new Teacher("Trang", 21, "abhsdfgc");
+const teacher5 = new Teacher("Ngoc", 19, "trhabc");
+
+const school = new School(
+  [student1, student2, student3, student4, student5],
+  [teacher1, teacher2, teacher3, teacher4, teacher5],
+);
+
+console.log(school.display());
 
 console.log();
 console.log("--- Test Lap 30 ---");
