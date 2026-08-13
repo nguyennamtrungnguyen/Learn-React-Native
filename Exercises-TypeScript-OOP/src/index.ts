@@ -835,9 +835,27 @@ console.log(cat28.sound());
 // ----------------------------------------------------------------------------- //
 
 // 29. Create an interface Movable with method move(). Implement it in Car and Robot.
+interface Moveable {
+  move(): string;
+}
 
+class Car29 implements Moveable {
+  move(): string {
+    return `This Car is moving`;
+  }
+}
+
+class Robot implements Moveable {
+  move(): string {
+    return `This Robot is moving`;
+  }
+}
 console.log();
 console.log("--- Test Lap 29 ---");
+const car29 = new Car29();
+console.log(car29.move());
+const robot = new Robot();
+console.log(robot.move());
 
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
