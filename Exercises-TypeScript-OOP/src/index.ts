@@ -645,9 +645,37 @@ console.log(repository);
 // ----------------------------------------------------------------------------- //
 
 // 22. Create a class Stack with push, pop, peek, isEmpty methods.
-class customStack<T> {}
+class customStack<T> {
+  stackData: T[];
+  constructor(stackData: T[]) {
+    this.stackData = stackData;
+  }
+
+  push(item: T): void {
+    this.stackData.push(item);
+  }
+
+  pop(): T | undefined {
+    return this.stackData.pop();
+  }
+
+  peek(): T | undefined {
+    return this.stackData[this.stackData.length - 1];
+  }
+
+  isEmpty(): boolean {
+    return this.stackData.length === 0;
+  }
+}
 console.log();
 console.log("--- Test Lap 22 ---");
+const stack = new customStack<number>([1, 2, 3, 4, 5, 6, 7, 8]);
+stack.push(4);
+console.log(stack);
+console.log(stack.pop());
+console.log(stack.peek());
+console.log(stack.isEmpty());
+console.log(stack);
 
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
