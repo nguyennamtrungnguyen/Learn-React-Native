@@ -629,7 +629,7 @@ console.log(bike20.run());
 // ----------------------------------------------------------------------------- //
 
 // 21. Create a generic Repository class with methods add(), getAll().
-class customerRepository<T> {
+class customRepository<T> {
   data: T[];
 
   constructor() {
@@ -638,14 +638,14 @@ class customerRepository<T> {
 }
 console.log();
 console.log("--- Test Lap 21 ---");
-const repository = new customerRepository();
+const repository = new customRepository();
 console.log(repository);
 
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
 
 // 22. Create a class Stack with push, pop, peek, isEmpty methods.
-
+class customStack<T> {}
 console.log();
 console.log("--- Test Lap 22 ---");
 
