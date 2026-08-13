@@ -541,6 +541,32 @@ logger.log("Hello, My name is Nguyen");
 
 // 18. Create a static class MathUtil with methods add(), subtract(), multiply(), divide().
 
+class MathUtil {
+  static add(a: number, b: number) {
+    return a + b;
+  }
+
+  static subtract(a: number, b: number) {
+    return a - b;
+  }
+
+  static multiply(a: number, b: number) {
+    return a * b;
+  }
+
+  static divide(a: number, b: number) {
+    if (b == 0) return;
+    return a / b;
+  }
+}
+
+console.log();
+console.log("--- Test Lap 18 ---");
+console.log(MathUtil.add(234, 235));
+console.log(MathUtil.subtract(234, 23));
+console.log(MathUtil.multiply(234, 235));
+console.log(MathUtil.divide(234, 235));
+
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
 
