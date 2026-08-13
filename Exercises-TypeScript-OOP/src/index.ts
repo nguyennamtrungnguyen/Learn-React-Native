@@ -620,6 +620,10 @@ class Bike20 implements Vehicle {
 
 console.log();
 console.log("--- Test Lap 20 ---");
+const car20 = new Car20();
+console.log(car20.run());
+const bike20 = new Bike20();
+console.log(bike20.run());
 
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
