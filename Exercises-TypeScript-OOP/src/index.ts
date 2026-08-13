@@ -595,7 +595,8 @@ console.log("--- Test Lap 19 ---");
 const cat19 = new Cat19();
 console.log(cat19.greeting());
 const dog19 = new Dog19();
-console.log(cat19.greeting());
+console.log(dog19.greeting());
+
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
 
