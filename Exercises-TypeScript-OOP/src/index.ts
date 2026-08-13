@@ -602,52 +602,100 @@ console.log(dog19.greeting());
 
 // 20. Write a Vehicle interface and implement it in Car and Bike classes.
 
+interface Vehicle {
+  run(): string;
+}
+
+class Car20 implements Vehicle {
+  run() {
+    return `This Car is running`;
+  }
+}
+
+class Bike20 implements Vehicle {
+  run() {
+    return `This Bike is running`;
+  }
+}
+
+console.log();
+console.log("--- Test Lap 20 ---");
+
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
 
 // 21. Create a generic Repository class with methods add(), getAll().
+
+console.log();
+console.log("--- Test Lap 21 ---");
 
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
 
 // 22. Create a class Stack with push, pop, peek, isEmpty methods.
 
+console.log();
+console.log("--- Test Lap 22 ---");
+
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
 
 // 23. Create an interface Payment with method pay(amount). Implement CashPayment and CardPayment.
+
+console.log();
+console.log("--- Test Lap 23 ---");
 
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
 
 // 24. Create an abstract class Appliance with method turnOn(). Implement Fan and AirConditioner.
 
+console.log();
+console.log("--- Test Lap 24 ---");
+
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
 
 // 25. Create a class Shape with a static method describe().
+
+console.log();
+console.log("--- Test Lap 25 ---");
 
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
 
 // 26. Create a class Order with list of products. Add method to calculate total price.
 
+console.log();
+console.log("--- Test Lap 26 ---");
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
 
 // 27. Create a class Teacher that extends Person. Add subject attribute and introduce method.
+
+console.log();
+console.log("--- Test Lap 27 ---");
 
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
 
 // 28. Create a class Animal with protected method makeSound(). Extend Dog and Cat to override it.
 
+console.log();
+console.log("--- Test Lap 28 ---");
+
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
 
 // 29. Create an interface Movable with method move(). Implement it in Car and Robot.
 
+console.log();
+console.log("--- Test Lap 29 ---");
+
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
 
 // 30. Create a class School with list of Students and Teachers. Add method to display info.
+
+console.log();
+console.log("--- Test Lap 30 ---");
