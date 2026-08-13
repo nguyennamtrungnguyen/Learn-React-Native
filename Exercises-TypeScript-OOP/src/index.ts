@@ -681,9 +681,27 @@ console.log(stack);
 // ----------------------------------------------------------------------------- //
 
 // 23. Create an interface Payment with method pay(amount). Implement CashPayment and CardPayment.
+interface Payment {
+  pay(amount: number): string;
+}
 
+class CashPayment implements Payment {
+  pay(amount: number) {
+    return `CashPayment ${amount} $`;
+  }
+}
+
+class CardPayment implements Payment {
+  pay(amount: number) {
+    return `CardPayment ${amount} $`;
+  }
+}
 console.log();
 console.log("--- Test Lap 23 ---");
+const cashPayment = new CashPayment();
+console.log(cashPayment.pay(1000000));
+const cardPayment = new CardPayment();
+console.log(cardPayment.pay(1000000));
 
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
