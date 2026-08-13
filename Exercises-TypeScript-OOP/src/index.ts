@@ -803,9 +803,33 @@ console.log(teacher.introduce());
 // ----------------------------------------------------------------------------- //
 
 // 28. Create a class Animal with protected method makeSound(). Extend Dog and Cat to override it.
+class Animal28 {
+  protected makeSound(): string {
+    return `a b c ...`;
+  }
 
+  sound(): string {
+    return this.makeSound();
+  }
+}
+
+class Dog28 extends Animal28 {
+  protected makeSound(): string {
+    return `Gâu Gâu Gâu...`;
+  }
+}
+
+class Cat28 extends Animal28 {
+  protected makeSound(): string {
+    return `Meo Meo Meo...`;
+  }
+}
 console.log();
 console.log("--- Test Lap 28 ---");
+const dog28 = new Dog28();
+console.log(dog28.sound());
+const cat28 = new Cat28();
+console.log(cat28.sound());
 
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
