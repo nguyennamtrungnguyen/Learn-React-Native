@@ -437,34 +437,34 @@ developer.writeCode();
 // ----------------------------------------------------------------------------- //
 
 // 15. Create a Library class that can store Book and User objects. Add method to add books.
-class BookInTheLap15 {
+class Book15 {
   constructor(
     public title: string,
     public name: string,
   ) {}
 }
 
-class UserInTheLap15 {
+class User15 {
   constructor(public name: string) {}
 }
 
 class Library {
-  private books: BookInTheLap15[] = [];
-  private users: UserInTheLap15[] = [];
+  private books: Book15[] = [];
+  private users: User15[] = [];
 
-  addBook(book: BookInTheLap15): void {
+  addBook(book: Book15): void {
     this.books.push(book);
   }
 
-  addUser(user: UserInTheLap15): void {
+  addUser(user: User15): void {
     this.users.push(user);
   }
 
-  getBooks(): BookInTheLap15[] {
+  getBooks(): Book15[] {
     return this.books;
   }
 
-  getUsers(): UserInTheLap15[] {
+  getUsers(): User15[] {
     return this.users;
   }
 }
@@ -473,11 +473,11 @@ console.log();
 console.log("--- Test Lap 15 ---");
 const library = new Library();
 
-const book1 = new BookInTheLap15("Clean Code", "Robert Martin");
-const book2 = new BookInTheLap15("Design Patterns", "GoF");
+const book1 = new Book15("Clean Code", "Robert Martin");
+const book2 = new Book15("Design Patterns", "GoF");
 
-const user1 = new UserInTheLap15("Nguyen");
-const user2 = new UserInTheLap15("An");
+const user1 = new User15("Nguyen");
+const user2 = new User15("An");
 
 library.addBook(book1);
 library.addBook(book2);
