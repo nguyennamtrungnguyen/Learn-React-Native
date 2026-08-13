@@ -572,6 +572,30 @@ console.log(MathUtil.divide(234, 235));
 
 // 19. Demonstrate method overriding using polymorphism with Animal and subclasses.
 
+class Animal19 {
+  greeting(): string {
+    return `Hi`;
+  }
+}
+
+class Cat19 extends Animal19 {
+  greeting(): string {
+    return `Hi, I am a Cat!`;
+  }
+}
+
+class Dog19 extends Animal19 {
+  greeting(): string {
+    return `Hi, I am a Dog!`;
+  }
+}
+
+console.log();
+console.log("--- Test Lap 19 ---");
+const cat19 = new Cat19();
+console.log(cat19.greeting());
+const dog19 = new Dog19();
+console.log(cat19.greeting());
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
 
