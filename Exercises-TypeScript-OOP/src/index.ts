@@ -707,9 +707,29 @@ console.log(cardPayment.pay(1000000));
 // ----------------------------------------------------------------------------- //
 
 // 24. Create an abstract class Appliance with method turnOn(). Implement Fan and AirConditioner.
+abstract class Appliance {
+  turnOn(): string {
+    return `This Appliance is turning on`;
+  }
+}
 
+class Fan extends Appliance {
+  turnOn(): string {
+    return `Fan is turning on`;
+  }
+}
+
+class AirConditioner extends Appliance {
+  turnOn(): string {
+    return `AirConditioner is turning on`;
+  }
+}
 console.log();
 console.log("--- Test Lap 24 ---");
+const fan = new Fan();
+console.log(fan.turnOn());
+const airConditioner = new AirConditioner();
+console.log(airConditioner.turnOn());
 
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
