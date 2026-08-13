@@ -629,9 +629,17 @@ console.log(bike20.run());
 // ----------------------------------------------------------------------------- //
 
 // 21. Create a generic Repository class with methods add(), getAll().
+class customerRepository<T> {
+  data: T[];
 
+  constructor() {
+    this.data = [];
+  }
+}
 console.log();
 console.log("--- Test Lap 21 ---");
+const repository = new customerRepository();
+console.log(repository);
 
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
