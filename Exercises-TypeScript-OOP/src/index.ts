@@ -735,9 +735,22 @@ console.log(airConditioner.turnOn());
 // ----------------------------------------------------------------------------- //
 
 // 25. Create a class Shape with a static method describe().
+class Shape25 {
+  width: number;
+  height: number;
+  constructor(width: number, height: number) {
+    this.width = width;
+    this.height = height;
+  }
+
+  static describe(): string {
+    return `Shape`;
+  }
+}
 
 console.log();
 console.log("--- Test Lap 25 ---");
+console.log(Shape25.describe());
 
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
