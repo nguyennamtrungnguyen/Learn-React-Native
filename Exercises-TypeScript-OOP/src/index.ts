@@ -782,9 +782,22 @@ console.log(order.calculateTotalPrice());
 // ----------------------------------------------------------------------------- //
 
 // 27. Create a class Teacher that extends Person. Add subject attribute and introduce method.
+class Teacher extends Person {
+  subject: string;
 
+  constructor(name: string, age: number, subject: string) {
+    super(name, age);
+    this.subject = subject;
+  }
+
+  introduce(): string {
+    return `I am ${this.name}, ${this.age} years old, ${this.subject} teacher`;
+  }
+}
 console.log();
 console.log("--- Test Lap 27 ---");
+const teacher = new Teacher("Nguyen", 23, "Information Technology");
+console.log(teacher.introduce());
 
 // ----------------------------------------------------------------------------- //
 // ----------------------------------------------------------------------------- //
