@@ -162,7 +162,28 @@ lab7();
 // -----------------------------------------------------------------------------
 
 // 8.  Create a Promise  chain:  square the number  2, then double  it, then add 5.
-
+const lab8 = new Promise<number>((resolve) => {
+  resolve(2);
+});
+lab8
+  .then((number) => {
+    return number * number;
+  })
+  .then((number) => {
+    return number * 2;
+  })
+  .then((number) => {
+    return number + 5;
+  })
+  .then((result) => {
+    console.log();
+    console.log("Test Lab 8");
+    console.log(`Lab8: ${result}`);
+    console.log("------------------------------------");
+  })
+  .catch((error) => {
+    console.log("Error:", error);
+  });
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 
