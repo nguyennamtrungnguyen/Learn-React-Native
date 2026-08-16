@@ -188,7 +188,22 @@ lab8
 // -----------------------------------------------------------------------------
 
 // 9.  Write a Promise  that reads an array after 1 second and filters  even numbers.
+const lab9 = (array: number[]): Promise<number[]> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const result = array.filter((item) => item % 2 === 0);
+      resolve(result);
+    }, 1000);
+  });
+};
 
+lab9([1, 2, 3, 4, 5, 6, 7, 8, 9])
+  .then((result) => {
+    console.log(`Lab9: ${result}`);
+  })
+  .catch((error) => {
+    console.log("Error:", error);
+  });
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 
