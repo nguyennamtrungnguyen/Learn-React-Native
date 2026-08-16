@@ -1,19 +1,62 @@
 //      ===== A. Basics with Promise =====
-// 1.  Create a Promise  that returns  the string  "Hello Async" after 2 seconds.
-const lab1 = new Promise((res) => setTimeout(() => res("Hello Async"), 2000));
-lab1.then((msg) => console.log(`Lab1: ${msg}`));
+// Cấu trúc của 1 promise
+// const promise = new Promise<Type>((resolve, reject) => {
+//   // Xử lý bất đồng bộ
 
+//   resolve(value); //Thành công
+//   // reject(errot); thất bại
+// });
+// promise.then((result) => {
+//   // Nhận kết quả
+// });
+
+// 1.  Create a Promise  that returns  the string  "Hello Async" after 2 seconds.
+// const lab1 = new Promise((res) => setTimeout(() => res("Hello Async"), 2000));
+// lab1.then((msg) => console.log(`Lab1: ${msg}`));
+const lab1 = new Promise<string>((resolve, reject) => {
+  setTimeout(() => {
+    resolve("Hello Async");
+  }, 2000);
+});
+
+lab1.then((message) => {
+  console.log(`Lab1: ${message}`);
+});
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 
 // 2.  Write a function  that returns  a Promise  resolving  with  the number  10 after  1 second.
-const lab2 = new Promise((res) => setTimeout(() => res(10), 1000));
-lab2.then((msg) => console.log(`Lab2: ${msg}`));
+// const lab2 = new Promise((res) => setTimeout(() => res(10), 1000));
+// lab2.then((msg) => console.log(`Lab2: ${msg}`));
+const lab2 = (): Promise<number> => {
+  return new Promise<number>((resolve, reject) => {
+    setTimeout(() => {
+      resolve(10);
+    }, 1000);
+  });
+};
+
+lab2().then((number) => {
+  console.log(`Lab2: ${number}`);
+});
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 
 // 3.  Write a function  that rejects a Promise  with  the error  "Something went wrong" after  1 second.
-
+// const lab3 = new Promise((_, rej) =>
+//   setTimeout(() => rej("Something went wrong"), 1000),
+// );
+// lab3.catch((msg) => console.log(`Lab3: ${msg}`));
+const lab3 = (): Promise<never> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      reject("Something went wrong");
+    }, 1000);
+  });
+};
+lab3().catch((error) => {
+  console.log(`Lab3: ${error}`);
+});
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 
