@@ -57,11 +57,27 @@ const lab3 = (): Promise<never> => {
 lab3().catch((error) => {
   console.log(`Lab3: ${error}`);
 });
+
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 
 // 4.  Use  .then() and  .catch() to handle  a Promise  that returns  a random  number.
+const lab4 = (): Promise<number> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const num: number = Math.floor(Math.random() * 10) + 1;
+      resolve(num);
+    }, 4000);
+  });
+};
 
+lab4()
+  .then((result) => {
+    console.log(`Lab4: ${result}`);
+  })
+  .catch((error) => {
+    console.log(`Lab4 Error: ${error}`);
+  });
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 
