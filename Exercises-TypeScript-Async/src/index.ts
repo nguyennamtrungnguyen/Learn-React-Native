@@ -139,7 +139,25 @@ Promise.all([
 // -----------------------------------------------------------------------------
 
 // 7.  Use  Promise.race() to return  whichever  Promise  resolves  first.
+const lab7 = () => {
+  const task1 = simulateTask(2000);
+  const task2 = simulateTask(4000);
+  const task3 = simulateTask(3000);
+  const task4 = simulateTask(1000);
 
+  Promise.race([task1, task2, task3, task4])
+    .then((result) => {
+      console.log();
+      console.log("Test Lab 7");
+      console.log(`Lab7: ${result}`);
+      console.log("------------------------------------");
+    })
+    .catch((error) => {
+      console.log("Error:", error);
+    });
+};
+
+lab7();
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 
