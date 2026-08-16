@@ -20,7 +20,10 @@ const lab1 = new Promise<string>((resolve, reject) => {
 });
 
 lab1.then((message) => {
+  console.log();
+  console.log("Test Lab 1");
   console.log(`Lab1: ${message}`);
+  console.log("------------------------------------");
 });
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
@@ -37,7 +40,10 @@ const lab2 = (): Promise<number> => {
 };
 
 lab2().then((number) => {
+  console.log();
+  console.log("Test Lab 2");
   console.log(`Lab2: ${number}`);
+  console.log("------------------------------------");
 });
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
@@ -55,7 +61,10 @@ const lab3 = (): Promise<never> => {
   });
 };
 lab3().catch((error) => {
+  console.log();
+  console.log("Test Lab 3");
   console.log(`Lab3: ${error}`);
+  console.log("------------------------------------");
 });
 
 // -----------------------------------------------------------------------------
@@ -73,16 +82,32 @@ const lab4 = (): Promise<number> => {
 
 lab4()
   .then((result) => {
+    console.log();
+    console.log("Test Lab 4");
     console.log(`Lab4: ${result}`);
+    console.log("------------------------------------");
   })
   .catch((error) => {
     console.log(`Lab4 Error: ${error}`);
   });
+
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 
 // 5.  Create a function  simulateTask(time) that returns  a Promise  resolving  with  "Task done" after  time ms.
-
+const simulateTask = (time: number): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Task done");
+    }, time);
+  });
+};
+simulateTask(3000).then((result) => {
+  console.log();
+  console.log("Test Lab 5");
+  console.log(`Lab5: ${result}`);
+  console.log("------------------------------------");
+});
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 
