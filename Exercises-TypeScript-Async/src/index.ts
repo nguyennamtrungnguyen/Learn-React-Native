@@ -112,7 +112,29 @@ simulateTask(3000).then((result) => {
 // -----------------------------------------------------------------------------
 
 // 6.  Use  Promise.all() to run  3 simulated  Promises  in paralle l  and print  the result.
+const simulated = (time: number): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve("Take done");
+    }, time);
+  });
+};
 
+Promise.all([
+  simulated(1000),
+  simulated(2000),
+  simulated(3000),
+  simulated(5000),
+])
+  .then((results) => {
+    console.log();
+    console.log("Test Lab 6");
+    console.log("Lab6:", results);
+    console.log("------------------------------------");
+  })
+  .catch((error) => {
+    console.log("Error:", error);
+  });
 // -----------------------------------------------------------------------------
 // -----------------------------------------------------------------------------
 
