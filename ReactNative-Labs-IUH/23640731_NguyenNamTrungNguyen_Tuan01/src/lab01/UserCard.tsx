@@ -8,7 +8,7 @@ interface UserCardProps {
 export const UserCard = ({ name, age, isAdmin }: UserCardProps) => {
   return (
     <View style={styles.card}>
-      <Text style={styles.name}>Tên: {name}</Text>
+      <Text style={styles.name}>{name}</Text>
       <Text style={styles.age}>Tuổi: {age}</Text>
       {isAdmin ? (
         <Text style={styles.admin}>Quản trị viên</Text>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { UserCard } from "./UserCard";
 
 /*  Bài 1: Thẻ thông tin thành viên (UserCard)
@@ -9,11 +9,24 @@ import { UserCard } from "./UserCard";
 */
 const Lab01 = () => {
   return (
-    <View>
-      <Text>Bài 1: UserCard</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Bài 1: UserCard</Text>
       <UserCard name="Nguyen Nam Trung Nguyen" age={22} isAdmin={true} />
+      <UserCard name="Bui Thi Kieu Trang" age={21} isAdmin={false} />
+      <UserCard name="Nguyen Duy Khoi" age={12} isAdmin={false} />
+      <UserCard name="Nguyen Quynh Yen Nhi" age={20} isAdmin={false} />
     </View>
   );
 };
+const styles = StyleSheet.create({
+  container: {
+    padding: 16,
+  },
+  title: {
+    fontSize: 22,
+    fontWeight: "bold",
+    marginBottom: 16,
+  },
+});
 
 export default Lab01;
