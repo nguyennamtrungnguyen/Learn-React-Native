@@ -13,7 +13,7 @@ const Lab01 = () => {
       <Text style={styles.title}>Bài 1: UserCard</Text>
       <UserCard name="Nguyen Nam Trung Nguyen" age={22} isAdmin={true} />
       <UserCard name="Bui Thi Kieu Trang" age={21} isAdmin={false} />
-      {/* <UserCard name="Nguyen Duy Khoi" age={12} isAdmin={false} /> */}
+      <UserCard name="Nguyen Duy Khoi" age={12} isAdmin={false} />
       <UserCard name="Nguyen Quynh Yen Nhi" age={20} isAdmin={false} />
     </View>
   );
