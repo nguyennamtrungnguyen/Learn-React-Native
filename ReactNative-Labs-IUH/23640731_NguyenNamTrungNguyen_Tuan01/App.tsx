@@ -9,7 +9,8 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
-        <Lab01 />
+        {/* <Lab01 /> */}
+        <Lab02 />
         <Toast />
       </ScrollView>
     </SafeAreaView>
