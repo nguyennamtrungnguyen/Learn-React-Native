@@ -5,6 +5,7 @@ interface UserCardProps {
   age: number;
   isAdmin: boolean;
 }
+
 export const UserCard = ({ name, age, isAdmin }: UserCardProps) => {
   return (
     <View style={styles.card}>
@@ -18,6 +19,7 @@ export const UserCard = ({ name, age, isAdmin }: UserCardProps) => {
     </View>
   );
 };
+
 const styles = StyleSheet.create({
   card: {
     padding: 16,
