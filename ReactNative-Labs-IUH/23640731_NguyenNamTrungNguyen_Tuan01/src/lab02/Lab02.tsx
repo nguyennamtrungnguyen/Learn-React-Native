@@ -1,9 +1,28 @@
-import React from 'react'
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import { Counter } from "./Counter";
 
-const Lab02 = () => {
+// Bài 2: Bộ đếm số tăng giảm (Counter)
+// 	Mục tiêu: Hiểu cách TypeScript tự động suy luận kiểu (Type Inference) với React State.
+// 	Bài tập: Tạo component Counter có 2 nút tăng/giảm giá trị. Giới hạn không cho giảm xuống dưới 0.
+// 	Kiến thức cần học: useState với kiểu dữ liệu ngầm định và tường minh (useState<number>).
+
+export const Lab02 = () => {
   return (
-    <div>Lab02</div>
-  )
-}
+    <View>
+      <Counter></Counter>
+    </View>
+  );
+};
 
-export default Lab02
+const styles = StyleSheet.create({
+  container: {
+    padding: 16,
+  },
+  title: {
+    textAlign: "center",
+    fontSize: 22,
+    fontWeight: "bold",
+    marginBottom: 16,
+  },
+});
