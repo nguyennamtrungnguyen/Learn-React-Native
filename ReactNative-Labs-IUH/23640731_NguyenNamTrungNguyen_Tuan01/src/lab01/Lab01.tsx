@@ -7,6 +7,7 @@ import { UserCard } from "./UserCard";
         Bài tập: Tạo component UserCard nhận vào name (string), age (number), và isAdmin (boolean) để hiển thị giao diện khác nhau cho Admin.
  	    Kiến thức cần học: interface, primitive types (string, number, boolean).
 */
+
 const Lab01 = () => {
   return (
     <View style={styles.container}>
