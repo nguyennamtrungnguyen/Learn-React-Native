@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { Counter } from "./Counter";
 
 // Bài 2: Bộ đếm số tăng giảm (Counter)
@@ -9,8 +9,9 @@ import { Counter } from "./Counter";
 
 export const Lab02 = () => {
   return (
-    <View>
-      <Counter></Counter>
+    <View style={styles.container}>
+      <Text style={styles.title}>Bài 2: Bộ đếm số tăng giảm - Counter</Text>
+      <Counter />
     </View>
   );
 };
@@ -21,8 +22,9 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: "center",
-    fontSize: 22,
+    fontSize: 20,
     fontWeight: "bold",
     marginBottom: 16,
+    color: "blue",
   },
 });
