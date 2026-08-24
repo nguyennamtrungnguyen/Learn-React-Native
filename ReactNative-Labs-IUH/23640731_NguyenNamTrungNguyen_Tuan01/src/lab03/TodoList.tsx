@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Text, View } from "react-native";
 import { tasks } from "./TodoList";
 
-
-ca
+ca;
 
 interface todo {
   id: number;
@@ -29,11 +28,15 @@ export const tasks = [
   },
 ];
 
-export const TodoList = ({ task }) => {
-  const [task, setTasks] = useState<todo[]>(tasks);
+export const TodoList = () => {
+  const [todos, setTodos] = useState<todo[]>(tasks);
   return (
     <View>
-      <Text>{task.id}</Text>
+      {todos.map((todo) => (
+        <View>
+          <Text>{todo.title}</Text>
+        </View>
+      ))}
     </View>
   );
 };

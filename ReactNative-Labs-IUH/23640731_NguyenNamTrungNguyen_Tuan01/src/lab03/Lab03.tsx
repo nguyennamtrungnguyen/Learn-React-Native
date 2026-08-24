@@ -3,7 +3,7 @@
 // 	Bài tập: Tạo màn hình TodoList chứa mảng các task. Mỗi task gồm id (string) và title (string). Hiển thị ra màn hình bằng map().
 // 	Kiến thức cần học: Định nghĩa mảng object (Todo[] hoặc Array<Todo>).
 
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 export const Lab03 = () => {
   return (
