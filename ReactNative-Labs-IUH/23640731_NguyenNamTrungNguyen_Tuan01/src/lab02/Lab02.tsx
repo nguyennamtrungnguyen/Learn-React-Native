@@ -10,7 +10,7 @@ import { Counter } from "./Counter";
 export const Lab02 = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Bài 2: Bộ đếm số tăng giảm - Counter</Text>
+      <Text style={styles.title}>Bài 2: Counter</Text>
       <Counter />
     </View>
   );
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: "center",
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: "bold",
     marginBottom: 16,
     color: "blue",

@@ -11,7 +11,7 @@ import { UserCard } from "./UserCard";
 const Lab01 = () => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Bài 1:Thẻ thông tin thành viên-UserCard</Text>
+      <Text style={styles.title}>Bài 1: UserCard</Text>
       <UserCard name="Nguyen Nam Trung Nguyen" age={22} isAdmin={true} />
       <UserCard name="Bui Thi Kieu Trang" age={21} isAdmin={false} />
       <UserCard name="Nguyen Duy Khoi" age={12} isAdmin={false} />
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
   },
   title: {
     textAlign: "center",
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: "bold",
     marginBottom: 16,
     color: "blue",
