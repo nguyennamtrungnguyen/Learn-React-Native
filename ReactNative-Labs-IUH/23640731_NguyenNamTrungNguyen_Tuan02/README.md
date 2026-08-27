@@ -1,4 +1,4 @@
-# 📸 MINH CHỨNG BÀI THỰC HÀNH REACT NATIVE TUẦN 01
+# 📸 MINH CHỨNG BÀI THỰC HÀNH REACT NATIVE TUẦN 02
 
 **Sinh viên:** Nguyễn Nam Trung Nguyên
 **MSSV:** 23640731
