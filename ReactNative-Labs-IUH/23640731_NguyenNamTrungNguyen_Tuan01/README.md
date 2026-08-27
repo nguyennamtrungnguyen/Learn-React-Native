@@ -10,7 +10,7 @@ Thư mục này chứa hình ảnh minh chứng kết quả thực hiện các b
 ## Lab 01
 
 <p align="center">
-  <img src="./Lab01.png" width="600">
+  <img src="./minh_chung/Lab01.png" width="600">
 </p>
 
 ---
@@ -18,7 +18,7 @@ Thư mục này chứa hình ảnh minh chứng kết quả thực hiện các b
 ## Lab 02
 
 <p align="center">
-  <img src="./Lab02.png" width="600">
+  <img src="./minh_chung/Lab02.png" width="600">
 </p>
 
 ---
@@ -26,7 +26,7 @@ Thư mục này chứa hình ảnh minh chứng kết quả thực hiện các b
 ## Lab 03
 
 <p align="center">
-  <img src="./Lab03.png" width="600">
+  <img src="./minh_chung/Lab03.png" width="600">
 </p>
 
 ---
@@ -34,7 +34,7 @@ Thư mục này chứa hình ảnh minh chứng kết quả thực hiện các b
 ## Lab 04 – Custom Button
 
 <p align="center">
-  <img src="./Lab04.png" width="600">
+  <img src="./minh_chung/Lab04.png" width="600">
 </p>
 
 ---
@@ -42,7 +42,7 @@ Thư mục này chứa hình ảnh minh chứng kết quả thực hiện các b
 ## Lab 05 – Live Input
 
 <p align="center">
-  <img src="./Lab05.png" width="600">
+  <img src="./minh_chung/Lab05.png" width="600">
 </p>
 
 ---
@@ -50,7 +50,7 @@ Thư mục này chứa hình ảnh minh chứng kết quả thực hiện các b
 ## Lab 06 – Loading Wrapper
 
 <p align="center">
-  <img src="./Lab06.png" width="600">
+  <img src="./minh_chung/Lab06.png" width="600">
 </p>
 
 ---
@@ -58,7 +58,7 @@ Thư mục này chứa hình ảnh minh chứng kết quả thực hiện các b
 ## Lab 07 – Gender Selector
 
 <p align="center">
-  <img src="./Lab07.png" width="600">
+  <img src="./minh_chung/Lab07.png" width="600">
 </p>
 
 ---
@@ -66,7 +66,7 @@ Thư mục này chứa hình ảnh minh chứng kết quả thực hiện các b
 ## Lab 08 – Progress Bar
 
 <p align="center">
-  <img src="./Lab08.png" width="600">
+  <img src="./minh_chung/Lab08.png" width="600">
 </p>
 
 ---
