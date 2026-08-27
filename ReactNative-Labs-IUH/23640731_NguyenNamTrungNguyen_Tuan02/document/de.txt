@@ -1,0 +1,44 @@
+Bài 8: Component tái sử dụng với Props & Variant (Compound Props Pattern)
+	Mục tiêu: Rèn kỹ năng thiết kế API component linh hoạt, tách style theo cấu hình.
+Bài tập: Xây dựng component `AppButton` dùng chung cho toàn bộ app BookStore, hỗ trợ nhiều biến thể (variant) khác nhau.
+- Props: `title`, `variant` (`primary` | `secondary` | `outline` | `danger`), `size` (`small` | `medium` | `large`), `onPress`, `disabled`, `loading`, `icon` (component tùy chọn).
+- Khi `loading = true`, hiển thị `ActivityIndicator` thay cho `title`.
+- Style của từng `variant`/`size` phải tách riêng bằng object style động (không viết if-else lồng trong JSX).
+- Áp dụng thử cho các nút: "Thêm vào giỏ hàng" (primary), "Xem chi tiết" (outline), "Xóa sách" (danger).
+
+
+Phần 2: Gọi API & Xử lý bất đồng bộ
+Bài 9: Danh sách tin tức (News Feed)
+	Mục tiêu: Định nghĩa kiểu dữ liệu cho dữ liệu mock từ API ngoài.
+	Bài tập: Dùng fetch lấy dữ liệu từ https://jsonplaceholder.typicode.com/todos. Hiển thị danh sách tiêu đề bài viết lên FlatList.
+	Kiến thức cần học: Định nghĩa Type từ cấu trúc JSON, gán kiểu cho kết quả API (data as Post[]).
+
+Bài 10: Chi tiết người dùng (User Profile Detail)
+	Mục tiêu: Xử lý trạng thái dữ liệu có thể bị null hoặc undefined trước khi API trả về thành công. https://jsonplaceholder.typicode.com/users/1
+	Bài tập: Gọi API lấy chi tiết 1 user. Khi chưa có dữ liệu thì hiện màn hình trống, có dữ liệu thì đổ vào UI.
+	Kiến thức cần học: Giới hạn kiểu dữ liệu có thể null (User | null), Optional Chaining (user?.name).
+
+Bài 11: Tìm kiếm sản phẩm (Product Search API)
+	Mục tiêu: Truyền tham số có kiểu dữ liệu rõ ràng vào hàm gọi API.  https://dummyjson.com/products/search?q=keyword&limit={limit}
+	Bài tập: Viết hàm fetchProducts(keyword: string, limit: number) để gọi API tìm kiếm và hiển thị danh sách kết quả lên màn hình.
+	Kiến thức cần học: Type annotations cho tham số của hàm bất đồng bộ (async/await).
+
+Bài 12: Xử lý lỗi API (API Error Handling)
+	Mục tiêu: Định nghĩa cấu trúc lỗi trả về từ server để hiển thị thông báo thân thiện.
+	Bài tập: Tạo một API request cố tình làm lỗi (sai URL). Bắt lỗi trong khối catch và ép kiểu lỗi về cấu trúc CustomError để hiện thông báo lên Alert.
+	Kiến thức cần học: Ép kiểu trong khối catch (error as AxiosError hoặc unknown type guarding).
+
+Bài 13: Bộ lọc danh sách (Filtered List Generic)
+	Mục tiêu: Áp dụng Generic cơ bản để viết hàm lọc dữ liệu tái sử dụng được.
+	Bài tập: Viết một hàm nhận vào một mảng các object bất kỳ và một từ khóa, trả về mảng đã lọc theo trường name.
+	Kiến thức cần học: Khái niệm Generic <T>.
+
+Bài 14: Phân trang dữ liệu (Pagination Response)
+	Mục tiêu: Định nghĩa kiểu cho cấu trúc API bọc ngoài (Wrapper Response).
+	Bài tập: Định nghĩa kiểu dữ liệu cho API phân trang có dạng { data: T\[], total: number, page: number } ứng dụng vào danh sách sản phẩm.
+	Kiến thức cần học: Generic Interfaces (ApiResponse<T>).
+
+Bài 15: Tải lại trang (Pull to Refresh State)
+	Mục tiêu: Đồng bộ trạng thái boolean của hiệu ứng kéo để làm mới với API.
+	Bài tập: Tích hợp refreshing (boolean) vào FlatList. Khi kéo xuống, gọi lại API và cập nhật lại mảng dữ liệu.
+	Kiến thức cần học: Quản lý state bất đồng bộ song song.
