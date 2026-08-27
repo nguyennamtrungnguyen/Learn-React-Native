@@ -9,12 +9,6 @@ export const Counter = () => {
       <Text style={styles.count}>{count}</Text>
       <View style={styles.counter_button}>
         <Pressable
-          style={styles.button_increase}
-          onPress={() => setCount(count + 1)}
-        >
-          <Text style={styles.buttonText}>Tăng +</Text>
-        </Pressable>
-        <Pressable
           style={styles.button_decrease}
           onPress={() => {
             count > 0
@@ -26,6 +20,12 @@ export const Counter = () => {
           }}
         >
           <Text style={styles.buttonText}>Giảm -</Text>
+        </Pressable>
+        <Pressable
+          style={styles.button_increase}
+          onPress={() => setCount(count + 1)}
+        >
+          <Text style={styles.buttonText}>Tăng +</Text>
         </Pressable>
       </View>
     </View>

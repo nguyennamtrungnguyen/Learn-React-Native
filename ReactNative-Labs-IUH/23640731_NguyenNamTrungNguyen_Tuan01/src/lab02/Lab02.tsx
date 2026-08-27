@@ -19,6 +19,8 @@ export const Lab02 = () => {
 const styles = StyleSheet.create({
   container: {
     padding: 16,
+    flex: 1,
+    alignItems: "center",
   },
   title: {
     textAlign: "center",

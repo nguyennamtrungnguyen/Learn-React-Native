@@ -1,15 +1,12 @@
 import React, { useState } from "react";
-import { Text, View } from "react-native";
-import { tasks } from "./TodoList";
-
-ca;
+import { StyleSheet, Text, View } from "react-native";
 
 interface todo {
   id: number;
   title: string;
 }
 
-export const tasks = [
+const tasks = [
   {
     id: 1,
     title: "Learn HTML",
@@ -31,12 +28,36 @@ export const tasks = [
 export const TodoList = () => {
   const [todos, setTodos] = useState<todo[]>(tasks);
   return (
-    <View>
+    <View style={styles.container}>
+      <Text style={styles.title}>Danh sách việc cần làm</Text>
+
       {todos.map((todo) => (
-        <View>
-          <Text>{todo.title}</Text>
+        <View key={todo.id} style={styles.todoItem}>
+          <Text style={styles.todoText}>{todo.title}</Text>
         </View>
       ))}
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    paddingTop: 50,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
+  todoItem: {
+    padding: 15,
+    marginBottom: 10,
+    backgroundColor: "#eee",
+    borderRadius: 8,
+  },
+  todoText: {
+    fontSize: 18,
+  },
+});

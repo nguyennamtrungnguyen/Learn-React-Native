@@ -4,11 +4,13 @@
 // 	Kiến thức cần học: Định nghĩa mảng object (Todo[] hoặc Array<Todo>).
 
 import { StyleSheet, Text, View } from "react-native";
+import { TodoList } from "./TodoList";
 
 export const Lab03 = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Bài 3: Todo Basic</Text>
+      <TodoList />
     </View>
   );
 };

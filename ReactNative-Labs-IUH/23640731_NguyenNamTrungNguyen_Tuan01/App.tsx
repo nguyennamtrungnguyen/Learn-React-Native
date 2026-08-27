@@ -1,19 +1,22 @@
-import { StatusBar } from "expo-status-bar";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
-import Lab01 from "./src/lab01/Lab01";
-import { Lab02 } from "./src/lab02/Lab02";
+import { ScrollView, StyleSheet, View } from "react-native";
 import Toast from "react-native-toast-message";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+
+import { Lab02 } from "./src/lab02/Lab02";
+import { Lab03 } from "./src/lab03/Lab03";
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView>
-        {/* <Lab01 /> */}
-        <Lab02 />
+    <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+        <ScrollView contentContainerStyle={styles.content}>
+          <Lab02 />
+          <Lab03 />
+        </ScrollView>
+
         <Toast />
-      </ScrollView>
-    </SafeAreaView>
+      </SafeAreaView>
+    </SafeAreaProvider>
   );
 }
 
@@ -21,7 +24,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+  },
+
+  content: {
     alignItems: "center",
     justifyContent: "center",
+    padding: 20,
   },
 });
