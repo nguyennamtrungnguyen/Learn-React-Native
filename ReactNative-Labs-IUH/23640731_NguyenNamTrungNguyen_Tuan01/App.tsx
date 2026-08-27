@@ -9,6 +9,7 @@ import Lab05 from "./src/lab05/Lab05";
 import Lab06 from "./src/lab06/Lab06";
 import Lab07 from "./src/lab07/Lab07";
 import Lab08 from "./src/lab08/Lab08";
+import Lab01 from "./src/lab01/Lab01";
 
 export default function App() {
   return (
@@ -18,25 +19,15 @@ export default function App() {
           contentContainerStyle={styles.content}
           showsVerticalScrollIndicator={true}
         >
-          {/* Bài 2 */}
-          <Lab02 />
+          {/* <Lab01 /> */}
+          {/* <Lab02 /> */}
+          {/* <Lab03 /> */}
+          {/* <Lab04 /> */}
+          {/* <Lab05 /> */}
+          {/* <Lab06 /> */}
 
-          {/* Bài 3 */}
-          <Lab03 />
+          {/* <Lab07 /> */}
 
-          {/* Bài 4 */}
-          <Lab04 />
-
-          {/* Bài 5 */}
-          <Lab05 />
-
-          {/* Bài 6 */}
-          <Lab06 />
-
-          {/* Bài 7 */}
-          <Lab07 />
-
-          {/* Bài 8 */}
           <Lab08 />
         </ScrollView>
 
