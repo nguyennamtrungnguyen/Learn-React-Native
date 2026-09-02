@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 import { View, Text, FlatList, StyleSheet, Alert } from "react-native";
-
-import { getProducts } from "../api/productApi";
-import { Product } from "../types/api";
+import { getProducts } from "./productApi";
+import { Product } from "./api";
 
 const Lab15 = () => {
   const [products, setProducts] = useState<Product[]>([]);
