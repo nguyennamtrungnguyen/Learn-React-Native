@@ -7,6 +7,7 @@ import Lab11 from "./src/lab11/Lab11";
 import Lab12 from "./src/lab12/Lab12";
 import Lab13 from "./src/lab13/Lab13";
 import Lab14 from "./src/lab14/Lab14";
+import Lab15 from "./src/lab15/Lab15";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <Lab12 />
       <Lab13 />
       <Lab14 />
+      <Lab15 />
     </View>
   );
 }
