@@ -1,13 +1,6 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  FlatList,
-  StyleSheet,
-} from "react-native";
-
-import { filterByName } from "../utils/filterData";
+import { View, Text, TextInput, FlatList, StyleSheet } from "react-native";
+import { filterByName } from "./filterData";
 
 type Product = {
   id: number;
@@ -43,19 +36,14 @@ const products: Product[] = [
   },
 ];
 
-const FilteredList = () => {
+const Lab13 = () => {
   const [keyword, setKeyword] = useState("");
 
-  const filteredProducts = filterByName(
-    products,
-    keyword
-  );
+  const filteredProducts = filterByName(products, keyword);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>
-        Bộ lọc sản phẩm
-      </Text>
+      <Text style={styles.title}>Bộ lọc sản phẩm</Text>
 
       <TextInput
         style={styles.input}
@@ -69,26 +57,20 @@ const FilteredList = () => {
         keyExtractor={(item) => item.id.toString()}
         renderItem={({ item }) => (
           <View style={styles.item}>
-            <Text style={styles.name}>
-              {item.name}
-            </Text>
+            <Text style={styles.name}>{item.name}</Text>
 
-            <Text>
-              {item.price.toLocaleString("vi-VN")} ₫
-            </Text>
+            <Text>{item.price.toLocaleString("vi-VN")} ₫</Text>
           </View>
         )}
         ListEmptyComponent={
-          <Text style={styles.empty}>
-            Không tìm thấy sản phẩm
-          </Text>
+          <Text style={styles.empty}>Không tìm thấy sản phẩm</Text>
         }
       />
     </View>
   );
 };
 
-export default FilteredList;
+export default Lab13;
 
 const styles = StyleSheet.create({
   container: {
