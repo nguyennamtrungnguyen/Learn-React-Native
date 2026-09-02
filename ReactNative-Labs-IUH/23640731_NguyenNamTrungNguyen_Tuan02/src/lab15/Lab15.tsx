@@ -5,7 +5,7 @@ import { View, Text, FlatList, StyleSheet, Alert } from "react-native";
 import { getProducts } from "../api/productApi";
 import { Product } from "../types/api";
 
-const ProductScreen = () => {
+const Lab15 = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
   // Trạng thái loading lần đầu
@@ -76,7 +76,7 @@ const ProductScreen = () => {
   );
 };
 
-export default ProductScreen;
+export default Lab15;
 
 const styles = StyleSheet.create({
   container: {
