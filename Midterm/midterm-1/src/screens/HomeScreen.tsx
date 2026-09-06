@@ -1,9 +1,18 @@
-import { StyleSheet, Text, View } from "react-native";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { RootStackParamList } from "../../App";
 
-export const HomeScreen = () => {
+type Props = NativeStackScreenProps<RootStackParamList, "Home">;
+
+export const HomeScreen = ({ navigation }: Props) => {
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
+      <Pressable onPress={() => navigation.navigate("Profile")}>
+        <Text>Profile Screen</Text>
+      </Pressable>
+      <Pressable onPress={() => navigation.navigate("Todo")}>
+        <Text>Todo Screen</Text>
+      </Pressable>
     </View>
   );
 };
@@ -11,5 +20,6 @@ export const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: "center",
   },
 });

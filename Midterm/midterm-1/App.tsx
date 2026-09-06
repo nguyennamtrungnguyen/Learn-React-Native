@@ -19,8 +19,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 export default function App() {
   return (
     <SafeAreaProvider>
-      {" "}
-      // Bảo vệ tai thỏ pin
+      {/* Bảo vệ tai thỏ pin  */}
       <PaperProvider>
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Home">
