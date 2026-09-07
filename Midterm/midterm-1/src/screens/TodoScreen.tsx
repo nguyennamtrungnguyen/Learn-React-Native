@@ -1,35 +1,35 @@
-import { StyleSheet, Text, View } from "react-native";
-import { useFetch } from "./../hook/useFetch";
-import { ActivityIndicator } from "react-native-paper";
-import { useEffect, useState } from "react";
-import { Todo } from "../interfaces/Todo";
+// import { StyleSheet, Text, View } from "react-native";
+// import { useFetch } from "./../hook/useFetch";
+// import { ActivityIndicator } from "react-native-paper";
+// import { useEffect, useState } from "react";
+// import { Todo } from "../interfaces/Todo";
 
-const baseUrl = "https://697c4082889a1aecfeb1caab.mockapi.io/";
-export const TodoScreen = () => {
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const { isLoading, error, get, post, put, del } = useFetch(baseUrl);
+// const baseUrl = "https://697c4082889a1aecfeb1caab.mockapi.io/";
+// export const TodoScreen = () => {
+//   const [todos, setTodos] = useState<Todo[]>([]);
+//   const { isLoading, error, get, post, put, del } = useFetch(baseUrl);
 
-  const handleFetch = () => {
-    get("/todos").then((res) => setTodos(res));
-  };
+//   const handleFetch = () => {
+//     get("/todos").then((res) => setTodos(res));
+//   };
 
-  useEffect(() => handleFetch(), []);
+//   useEffect(() => handleFetch(), []);
 
-  if (isLoading)
-    return (
-      <View>
-        <ActivityIndicator size={"large"} animating={true} />
-      </View>
-    );
-  return (
-    <View style={styles.container}>
-      <Text>Home</Text>
-    </View>
-  );
-};
+//   if (isLoading)
+//     return (
+//       <View>
+//         <ActivityIndicator size={"large"} animating={true} />
+//       </View>
+//     );
+//   return (
+//     <View style={styles.container}>
+//       <Text>Home</Text>
+//     </View>
+//   );
+// };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//   },
+// });
