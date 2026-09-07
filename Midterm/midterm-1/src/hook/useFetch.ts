@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export const useFetch = (baseUrl: string) => {
-  const [isloading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const request = async (url: string, options?: RequestInit) => {
@@ -30,5 +30,5 @@ export const useFetch = (baseUrl: string) => {
     request(url, { method: "PUT", body: JSON.stringify(data) });
   const del = (url: string) => request(url, { method: "DELETE" });
 
-  return { isloading, error, get, post, put, del };
+  return { isLoading, error, get, post, put, del };
 };
