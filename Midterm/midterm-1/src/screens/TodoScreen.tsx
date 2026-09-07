@@ -2,10 +2,11 @@ import { StyleSheet, Text, View } from "react-native";
 import { useFetch } from "./../hook/useFetch";
 import { ActivityIndicator } from "react-native-paper";
 import { useEffect, useState } from "react";
+import { Todo } from "../interfaces/Todo";
 
 const baseUrl = "https://697c4082889a1aecfeb1caab.mockapi.io/";
 export const TodoScreen = () => {
-  const [todos, setTodos] = useState();
+  const [todos, setTodos] = useState<Todo[]>([]);
   const { isLoading, error, get, post, put, del } = useFetch(baseUrl);
 
   const handleFetch = () => {
