@@ -9,11 +9,26 @@ export const useFetch = (baseUrl: string) => {
     setError(null);
 
     try {
-      const res = await fetch(baseUrl + url);
+      const res = await fetch(baseUrl + url, {
+        headers: { "Content-Type": "application/json" },
+        ...options,
+      });
+
+      if (!res.ok) throw new Error("Lỗi");
+      return res.json();
     } catch (error: any) {
       setError(error.message);
     } finally {
       setIsLoading(false);
     }
   };
+
+  const get = (url: string) => request(url, { method: "GET" });
+  const post = (url: string, data: any) =>
+    request(url, { method: "POST", body: JSON.stringify(data) });
+  const put = (url: string, data: any) =>
+    request(url, { method: "PUT", body: JSON.stringify(data) });
+  const del = (url: string) => request(url, { method: "DELETE" });
+
+  return { isloading, error, get, post, put, del };
 };
