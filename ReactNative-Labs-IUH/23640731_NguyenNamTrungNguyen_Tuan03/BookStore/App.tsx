@@ -1,11 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-import Header from './src/components/header/Header';
+import { StyleSheet, View } from 'react-native';
+import HomeScreen from './src/components/screen/HomeScreen';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Header/>
+     <HomeScreen/>
     </View>
   );
 }
@@ -13,6 +12,6 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-
+    backgroundColor: '#fff', 
   },
 });
