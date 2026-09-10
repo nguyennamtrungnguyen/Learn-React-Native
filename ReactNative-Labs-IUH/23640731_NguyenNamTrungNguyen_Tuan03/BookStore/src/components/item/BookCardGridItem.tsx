@@ -43,8 +43,9 @@ const styles = StyleSheet.create({
 
   bookImage: {
     width: "100%",
-    aspectRatio: 3 / 4,
+    height: 250,
     borderRadius: 8,
+    resizeMode: "cover",
   },
 
   info: {
