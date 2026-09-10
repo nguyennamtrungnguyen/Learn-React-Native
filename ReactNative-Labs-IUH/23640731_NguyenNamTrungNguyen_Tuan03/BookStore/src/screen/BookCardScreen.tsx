@@ -1,6 +1,7 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import BookCardItem from "../components/item/BookCardItem";
 import CategoryChips from "../components/item/CategoryChips";
+import BookCardGridItem from "../components/item/BookCardGridItem";
 
 interface Book {
   source: any;
@@ -44,14 +45,20 @@ const books: Book[] = [
 
 const BookCardScreen = () => {
   return (
-    <View style={styles.bookCardContainer}>
-      <View>
-        <CategoryChips />
-      </View>
+    // <View style={styles.bookCardContainer}>
+    //   <View>
+    //     <CategoryChips />
+    //   </View>
+    //   {books.map((book, index) => (
+    //     <BookCardItem key={index} book={book} />
+    //   ))}
+
+    <View style={styles.container}>
       {books.map((book, index) => (
-        <BookCardItem key={index} book={book} />
+        <BookCardGridItem key={index} book={book} />
       ))}
     </View>
+    // </View>
   );
 };
 
@@ -62,5 +69,13 @@ const styles = StyleSheet.create({
     width: "100%",
     paddingHorizontal: 10,
     marginTop: 20,
+  },
+
+  container: {
+    width: "100%",
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
+    paddingHorizontal: 10,
   },
 });
