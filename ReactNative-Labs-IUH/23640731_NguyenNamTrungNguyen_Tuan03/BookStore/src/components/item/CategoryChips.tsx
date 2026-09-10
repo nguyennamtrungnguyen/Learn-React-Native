@@ -1,5 +1,4 @@
 import { StyleSheet, Text, View } from "react-native";
-import React from "react";
 
 const categories = [
   "Văn học",
@@ -14,10 +13,8 @@ const CategoryChips = () => {
   return (
     <View style={styles.container}>
       {categories.map((category, index) => (
-        <View>
-          <text style={styles.chip} key={index}>
-            <Text style={styles.text}>{category}</Text>
-          </text>
+        <View style={styles.chip} key={index}>
+          <Text style={styles.text}>{category}</Text>
         </View>
       ))}
     </View>
@@ -32,13 +29,16 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     gap: 8,
   },
+
   chip: {
-    paddingHorizontal: 20,
+    width: "31%",
     paddingVertical: 10,
     borderRadius: 30,
     borderWidth: 1,
     borderColor: "#6688FF",
+    alignItems: "center",
   },
+
   text: {
     fontSize: 14,
     color: "#222",
