@@ -13,7 +13,13 @@ const categories = [
 const CategoryChips = () => {
   return (
     <View style={styles.container}>
-      <Text>CategoryChips</Text>
+      {categories.map((category, index) => (
+        <View>
+          <text style={styles.chip} key={index}>
+            <Text style={styles.text}>{category}</Text>
+          </text>
+        </View>
+      ))}
     </View>
   );
 };
@@ -21,5 +27,20 @@ const CategoryChips = () => {
 export default CategoryChips;
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    gap: 8,
+  },
+  chip: {
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    borderRadius: 30,
+    borderWidth: 1,
+    borderColor: "#6688FF",
+  },
+  text: {
+    fontSize: 14,
+    color: "#222",
+  },
 });

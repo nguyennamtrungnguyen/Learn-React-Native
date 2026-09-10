@@ -1,5 +1,6 @@
 import { Image, StyleSheet, Text, View } from "react-native";
 import BookCardItem from "../components/item/BookCardItem";
+import CategoryChips from "../components/item/CategoryChips";
 
 interface Book {
   source: any;
@@ -44,6 +45,9 @@ const books: Book[] = [
 const BookCardScreen = () => {
   return (
     <View style={styles.bookCardContainer}>
+      <View>
+        <CategoryChips />
+      </View>
       {books.map((book, index) => (
         <BookCardItem key={index} book={book} />
       ))}
