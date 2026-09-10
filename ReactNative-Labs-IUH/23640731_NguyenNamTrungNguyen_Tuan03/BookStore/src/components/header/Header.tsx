@@ -4,7 +4,6 @@ import AntDesign from "@expo/vector-icons/AntDesign";
 const Header = () => {
   return (
     <View style={styles.header}>
-      {/* Logo */}
       <View>
         <Image
           source={require("../../../assets/logo.png")}
@@ -14,17 +13,10 @@ const Header = () => {
       </View>
 
       <View style={styles.headerRight}>
-        {/* Search */}
         <TextInput placeholder="Tìm kiếm..." style={styles.searchInput} />
 
-        {/* Cart button */}
         <Pressable>
-          <AntDesign
-            style={styles.headerCartIcon}
-            name="shopping-cart"
-            size={45}
-            color="black"
-          />
+          <AntDesign name="shopping-cart" size={45} color="#6B3E24" />
         </Pressable>
       </View>
     </View>
@@ -39,13 +31,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     padding: 10,
-    backgroundColor: "#1DCED8",
+    backgroundColor: "#FDFAF6",
   },
 
   logo: {
     marginLeft: 10,
-    width: 50,
-    height: 40,
+    width: 40,
+    height: 50,
   },
 
   headerRight: {
@@ -58,13 +50,10 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     height: 40,
-    backgroundColor: "#f0f0f0",
+    backgroundColor: "white",
     borderRadius: 8,
     marginLeft: 16,
-    padding: 2,
-  },
-
-  headerCartIcon: {
-    color: "red",
+    marginRight: 10,
+    padding: 10,
   },
 });
