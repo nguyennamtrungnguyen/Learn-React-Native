@@ -1,21 +1,20 @@
-import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
-import Header from '../header/Header'
-import BookCardScreen from './BookCardScreen'
+import { StyleSheet, View } from "react-native";
+import Header from "../components/header/Header";
+import BookCardScreen from "./BookCardScreen";
 
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
-      <Header/>
-      <BookCardScreen/>
+      <Header />
+      <BookCardScreen />
     </View>
-  )
-}
+  );
+};
 
-export default HomeScreen
+export default HomeScreen;
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-    }
-})
+  container: {
+    flex: 1,
+  },
+});
