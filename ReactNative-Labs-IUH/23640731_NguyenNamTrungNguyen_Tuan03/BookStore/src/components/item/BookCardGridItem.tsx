@@ -1,33 +1,19 @@
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, ImageSourcePropType, StyleSheet, Text, View } from "react-native";
 import React from "react";
-
-interface Book {
-  source: any;
-  title: string;
-  author: string;
-  price: number;
-}
-
-interface BookCardItemProps {
-  book: Book;
-}
+import { BookCardItemProps } from "../../interface/BookInterface";
 
 const BookCardGridItem = ({ book }: BookCardItemProps) => {
+  const resolvedSource = typeof book.source === "string" ? { uri: book.source } : book.source;
   return (
     <View style={styles.item}>
       <Image
-        source={
-          typeof book.source === "string" ? { uri: book.source } : book.source
-        }
+        source={resolvedSource}
         style={styles.bookImage}
       />
 
       <View style={styles.info}>
         <Text style={styles.title}>{book.title}</Text>
-
-        <Text style={styles.author}>{book.author}</Text>
-
-        <Text style={styles.price}>{book.price.toLocaleString("vi-VN")}đ</Text>
+        <Text>{book.price.toLocaleString("vi-VN")}đ</Text>
       </View>
     </View>
   );
@@ -43,6 +29,7 @@ const styles = StyleSheet.create({
 
   bookImage: {
     width: "100%",
+    aspectRatio: 3/4,
     height: 250,
     borderRadius: 8,
     resizeMode: "cover",
@@ -50,10 +37,15 @@ const styles = StyleSheet.create({
 
   info: {
     marginTop: 8,
+    flex: 1,
+    flexDirection: "row",
+    justifyContent:"space-around",
+    gap:10
+    
   },
 
   title: {
-    fontSize: 16,
+    fontSize: 12,
     fontWeight: "bold",
   },
 

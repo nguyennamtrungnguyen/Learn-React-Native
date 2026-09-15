@@ -2,13 +2,9 @@ import { Image, StyleSheet, Text, View } from "react-native";
 import BookCardItem from "../components/item/BookCardItem";
 import CategoryChips from "../components/item/CategoryChips";
 import BookCardGridItem from "../components/item/BookCardGridItem";
+import { Book } from "../interface/BookInterface";
+import ImageBackgroundBook from "../components/item/ImageBackgroundBook";
 
-interface Book {
-  source: any;
-  title: string;
-  author: string;
-  price: number;
-}
 
 const books: Book[] = [
   {
@@ -61,6 +57,7 @@ const BookCardScreen = () => {
           <BookCardGridItem key={index} book={book} />
         ))}
       </View>
+      
     </View>
   );
 };

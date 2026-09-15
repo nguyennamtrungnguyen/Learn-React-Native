@@ -1,22 +1,13 @@
-import { Image, StyleSheet, Text, View } from "react-native";
-
-interface Book {
-  source: any;
-  title: string;
-  author: string;
-  price: number;
-}
-
-interface BookCardItemProps {
-  book: Book;
-}
+import { Image, ImageSourcePropType, StyleSheet, Text, View } from "react-native";
+import { BookCardItemProps } from "../../interface/BookInterface";
 
 const BookCardItem = ({ book }: BookCardItemProps) => {
+  const resolvedSource = typeof book.source === "string" ? { uri: book.source } : book.source;
   return (
     <View style={styles.bookCardItem}>
       <View style={styles.bookCardLeft}>
         <Image
-          source={book.source}
+          source={resolvedSource}
           style={styles.bookImage}
           resizeMode="cover"
         />
