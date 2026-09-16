@@ -3,8 +3,7 @@ import BookCardItem from "../components/item/BookCardItem";
 import CategoryChips from "../components/item/CategoryChips";
 import BookCardGridItem from "../components/item/BookCardGridItem";
 import { Book } from "../interface/BookInterface";
-import ImageBackgroundBook from "../components/item/ImageBackgroundBook";
-
+import ImageBackgroundBook from "../components/item/BadgeSaleImage";
 
 const books: Book[] = [
   {
@@ -45,7 +44,7 @@ const BookCardScreen = () => {
       <View>
         <CategoryChips />
       </View>
-      
+
       <View>
         {books.map((book, index) => (
           <BookCardItem key={index} book={book} />
@@ -57,7 +56,6 @@ const BookCardScreen = () => {
           <BookCardGridItem key={index} book={book} />
         ))}
       </View>
-      
     </View>
   );
 };
