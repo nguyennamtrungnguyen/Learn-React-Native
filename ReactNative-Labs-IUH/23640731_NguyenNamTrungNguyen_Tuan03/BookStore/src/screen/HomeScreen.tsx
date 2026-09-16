@@ -5,16 +5,15 @@ import BadgeSaleImage from "../components/common/BadgeSaleImage";
 import FloatingCartButton from "../components/common/FloatingCartButton";
 import CategoryChips from "../components/common/CategoryChips";
 import BookDetailScreen from "./BookDetailScreen";
+import Footer from "../components/footer/Footer";
 
 const HomeScreen = () => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
         <Header />
-        {/* <View>
-          <CategoryChips />
-        </View> */}
-        {/* <BookCardScreen /> */}
+        <CategoryChips />
+        <BookCardScreen />
         {/* <BookCardScreen /> */}
         {/* <br></br> */}
         {/* <View>
@@ -22,7 +21,8 @@ const HomeScreen = () => {
         </View> */}
         {/* <FloatingCartButton cartCount={3} /> */}
 
-        <BookDetailScreen />
+        {/* <BookDetailScreen /> */}
+        <Footer />
       </View>
     </SafeAreaView>
   );
