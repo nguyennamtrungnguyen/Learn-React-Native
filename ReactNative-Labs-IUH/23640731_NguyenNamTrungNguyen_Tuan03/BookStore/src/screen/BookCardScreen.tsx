@@ -1,9 +1,10 @@
 import { Image, StyleSheet, Text, View } from "react-native";
-import BookCardItem from "../components/item/BookCardItem";
-import CategoryChips from "../components/item/CategoryChips";
-import BookCardGridItem from "../components/item/BookCardGridItem";
+import BookCardItem from "../components/common/BookCardItem";
+import CategoryChips from "../components/common/CategoryChips";
+import BookCardGridItem from "../components/common/BookCardGridItem";
 import { Book } from "../interface/BookInterface";
-import ImageBackgroundBook from "../components/item/BadgeSaleImage";
+import ImageBackgroundBook from "../components/common/BadgeSaleImage";
+import FloatingCartButton from "../components/common/FloatingCartButton";
 
 const books: Book[] = [
   {

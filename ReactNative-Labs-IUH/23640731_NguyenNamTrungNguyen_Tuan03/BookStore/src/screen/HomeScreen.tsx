@@ -1,17 +1,19 @@
 import { ScrollView, StyleSheet, View } from "react-native";
 import Header from "../components/header/Header";
 import BookCardScreen from "./BookCardScreen";
-import BadgeSaleImage from "../components/item/BadgeSaleImage";
+import BadgeSaleImage from "../components/common/BadgeSaleImage";
+import FloatingCartButton from "../components/common/FloatingCartButton";
 
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <Header />
-      {/* <BookCardScreen /> */}
+      <BookCardScreen />
       <br></br>
       <View>
         <BadgeSaleImage prop="https://m.media-amazon.com/images/S/compressed.photo.goodreads.com/books/1495635816i/32521178.jpg" />
       </View>
+      <FloatingCartButton cartCount={3} />
     </View>
   );
 };
