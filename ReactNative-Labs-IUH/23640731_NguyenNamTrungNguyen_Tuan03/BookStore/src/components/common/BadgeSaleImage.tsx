@@ -7,12 +7,11 @@ import {
 } from "react-native";
 import { bookImage } from "../../interface/BookInterface";
 
-const BadgeSaleImage = ({ prop }: bookImage) => {
+const BadgeSaleImage = ({ source }: bookImage) => {
   return (
     <View style={styles.container}>
       <View style={styles.coverContainer}>
-        <Image source={{ uri: prop }} style={styles.image} />
-
+        <Image source={source} style={styles.image} resizeMode="cover" />
         <View style={styles.badge}>
           <Text style={styles.badgeText}>- 20%</Text>
         </View>
@@ -33,6 +32,9 @@ const styles = StyleSheet.create({
   image: {
     width: "100%",
     aspectRatio: 3 / 4,
+    height: 250,
+    borderRadius: 8,
+    resizeMode: "cover",
   },
 
   badge: {

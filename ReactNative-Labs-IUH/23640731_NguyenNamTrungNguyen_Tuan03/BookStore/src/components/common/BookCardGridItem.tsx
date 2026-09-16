@@ -1,15 +1,20 @@
-import { Image, ImageSourcePropType, StyleSheet, Text, View } from "react-native";
+import {
+  Image,
+  ImageSourcePropType,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import React from "react";
 import { BookCardItemProps } from "../../interface/BookInterface";
+import BadgeSaleImage from "./BadgeSaleImage";
 
 const BookCardGridItem = ({ book }: BookCardItemProps) => {
-  const resolvedSource = typeof book.source === "string" ? { uri: book.source } : book.source;
+  const resolvedSource =
+    typeof book.source === "string" ? { uri: book.source } : book.source;
   return (
     <View style={styles.item}>
-      <Image
-        source={resolvedSource}
-        style={styles.bookImage}
-      />
+      <BadgeSaleImage source={resolvedSource} />
 
       <View style={styles.info}>
         <Text style={styles.title}>{book.title}</Text>
@@ -27,21 +32,13 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
 
-  bookImage: {
-    width: "100%",
-    aspectRatio: 3/4,
-    height: 250,
-    borderRadius: 8,
-    resizeMode: "cover",
-  },
 
   info: {
     marginTop: 8,
     flex: 1,
     flexDirection: "row",
-    justifyContent:"space-around",
-    gap:10
-    
+    justifyContent: "space-around",
+    gap: 10,
   },
 
   title: {
