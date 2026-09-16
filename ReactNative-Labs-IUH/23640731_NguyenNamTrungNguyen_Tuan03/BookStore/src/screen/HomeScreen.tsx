@@ -6,14 +6,15 @@ import FloatingCartButton from "../components/common/FloatingCartButton";
 import CategoryChips from "../components/common/CategoryChips";
 import BookDetailScreen from "./BookDetailScreen";
 import Footer from "../components/footer/Footer";
+import CartScreen from "./CartScreen";
 
 const HomeScreen = () => {
   return (
     <SafeAreaView>
       <View style={styles.container}>
         <Header />
-        <CategoryChips />
-        <BookCardScreen />
+        {/* <CategoryChips /> */}
+        {/* <BookCardScreen /> */}
         {/* <BookCardScreen /> */}
         {/* <br></br> */}
         {/* <View>
@@ -22,6 +23,7 @@ const HomeScreen = () => {
         {/* <FloatingCartButton cartCount={3} /> */}
 
         {/* <BookDetailScreen /> */}
+        <CartScreen />
         <Footer />
       </View>
     </SafeAreaView>
