@@ -16,16 +16,16 @@ export const TodoScreen = () => {
   useEffect(() => handleFetch(), []);
 
   if (isLoading)
-    // return (
-    //   <View>
-    //     <ActivityIndicator size={"large"} animating={true} />
-    //   </View>
-    // );
     return (
-      <View style={styles.container}>
-        <Text>Home</Text>
+      <View>
+        <ActivityIndicator size={"large"} animating={true} />
       </View>
     );
+  return (
+    <View style={styles.container}>
+      <Text>Home</Text>
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
