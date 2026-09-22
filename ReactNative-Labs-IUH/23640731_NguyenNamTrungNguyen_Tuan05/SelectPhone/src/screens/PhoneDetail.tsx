@@ -4,18 +4,20 @@ import { RootStackParamList } from '../../App'
 import { NativeStackScreenProps } from '@react-navigation/native-stack'
 import AntDesign from '@expo/vector-icons/AntDesign';
 
-type Props = NativeStackScreenProps<RootStackParamList, "Home">
+type Props = NativeStackScreenProps<RootStackParamList, "Home">;
+
 const PhoneDetail = ({navigation}: Props) => {
   return (
     <View>
           <View>
             {/* Image Product */}
-            <Image source={{uri: ""}}></Image>
+            <Image source={{uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJynMQVWZmnFn6Z8oW6I4CobTcXJc87rF1mhEVIUsE5Q&s=10"}}/>
           </View>
 
           <View>
             <Text>
               {/* title */}
+              Điện Thoại Vsmart Joy 3 - Hàng chính hãng
             </Text>
             <View>
               <View>
@@ -26,8 +28,8 @@ const PhoneDetail = ({navigation}: Props) => {
             </View>
             {/* Price */}
             <View>
-              <Text>Price giảm</Text>
-              <Text>Price gốc</Text>
+              <Text>1.790.000</Text>
+              <Text>1.990.000</Text>
             </View>
 
              <View>
@@ -35,7 +37,7 @@ const PhoneDetail = ({navigation}: Props) => {
               <AntDesign name="question-circle" size={24} color="black" />
             </View>
 
-            <Pressable><Text>4 MÀU - CHỌN MÀU</Text><AntDesign name="right" size={24} color="black" /></Pressable>
+            <Pressable onPress={()=> navigation.navigate("PhoneSelect")}><Text>4 MÀU - CHỌN MÀU</Text><AntDesign name="right" size={24} color="black" /></Pressable>
           </View>
 
           <Pressable><Text>CHỌN MUA</Text></Pressable>
@@ -45,4 +47,6 @@ const PhoneDetail = ({navigation}: Props) => {
 
 export default PhoneDetail
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({
+
+})

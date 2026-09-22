@@ -7,7 +7,7 @@ const PhoneSelect = ({navigation}: Props) => {
   return (
     <View>
       <Pressable onPress={()=> navigation.navigate("PhoneDetail")}>
-        <Text>Trang chi tiết sản phẩm</Text>
+        <Text>Màu</Text>
       </Pressable>
     </View>
   )
