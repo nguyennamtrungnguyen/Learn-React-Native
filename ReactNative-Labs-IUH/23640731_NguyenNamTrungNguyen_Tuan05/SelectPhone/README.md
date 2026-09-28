@@ -16,16 +16,20 @@ Các bài thực hành tập trung vào Navigation và xử lý dữ liệu gi�
 
 ## 📸 Hình ảnh minh chứng
 
-### Bài tập 1 – Select Phone
+<div align="center">
 
-![Phone Detail](./minhchung/PagePhoneDetail.png)
+<img src="./minhchung/PagePhoneDetail.png" width="250"/>
+&nbsp;&nbsp;➡️&nbsp;&nbsp;
+<img src="./minhchung/PagePhoneSelect.png" width="250"/>
+&nbsp;&nbsp;➡️&nbsp;&nbsp;
+<img src="./minhchung/PagePhoneDetailAfterSelect.png" width="250"/>
 
-⬇️ **Chọn mua**
+<br>
 
-![Phone Select](./minhchung/PagePhoneSelect.png)
+**Phone Detail**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+**Phone Select**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+**Phone Detail After Select**
 
-⬇️ **Chọn màu → Xong**
-
-![Phone Detail After Select](./minhchung/PagePhoneDetailAfterSelect.png)
-
----
+</div>
