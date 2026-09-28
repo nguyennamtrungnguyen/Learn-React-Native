@@ -1,6 +1,7 @@
 # 📱 MINH CHỨNG BÀI THỰC HÀNH REACT NATIVE TUẦN 05
 
-**Sinh viên:** Nguyễn Nam Trung Nguyên  
+**Sinh viên:** Nguyễn Nam Trung Nguyên
+
 **MSSV:** 23640731
 
 ---
@@ -17,13 +18,14 @@ Các bài thực hành tập trung vào Navigation và xử lý dữ liệu gi�
 
 ### Bài tập 1 – Select Phone
 
+![Phone Detail](./minhchung/PagePhoneDetail.png)
+
+⬇️ **Chọn mua**
+
 ![Phone Select](./minhchung/PagePhoneSelect.png)
 
-![Phone Detail](./minhchung/PagePhoneDetail.png)
+⬇️ **Chọn màu → Xong**
 
 ![Phone Detail After Select](./minhchung/PagePhoneDetailAfterSelect.png)
 
 ---
-
-**Sinh viên:** Nguyễn Nam Trung Nguyên  
-**MSSV:** 23640731
