@@ -8,7 +8,7 @@ type Props = {
 };
 const TodoCard = ({ data }: Props) => {
   return (
-    <Card>
+    <Card style={{ margin: 10 }}>
       <Card.Title title={data.isCompleted} />
       <Card.Content>
         <Text>{data.description}</Text>
