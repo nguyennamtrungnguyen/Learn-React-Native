@@ -8,7 +8,7 @@ import TodoCard from "../components/TodoCard";
 const baseUrl = "https://697c4082889a1aecfeb1caab.mockapi.io/";
 export const TodoScreen = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
-  const limit = 2;
+  const limit = 10;
   const [page, setPage] = useState(1);
   const { isLoading, error, get, post, put, del } = useFetch(baseUrl);
 
