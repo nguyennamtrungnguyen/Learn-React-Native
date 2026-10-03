@@ -15,7 +15,9 @@ export const TodoScreen = () => {
   const handleFetch = () => {
     get(`/todos?page=${page}&limit=${limit}`).then((res) => setTodos(res));
   };
-
+  const handleDel = async (id: string) => {
+    del(`/todos/${id}`);
+  };
   useEffect(() => handleFetch(), [page]);
 
   if (isLoading)
@@ -36,7 +38,9 @@ export const TodoScreen = () => {
       <FlatList
         data={todos}
         keyExtractor={(item) => item.id}
-        renderItem={(root) => <TodoCard data={root.item} />}
+        renderItem={(root) => (
+          <TodoCard onPressDeleteBtn={handleDel} data={root.item} />
+        )}
       />
       <Button onPress={() => setPage(page + 1)}>Next</Button>
       <Text style={{ textAlign: "center" }}>{page}</Text>
