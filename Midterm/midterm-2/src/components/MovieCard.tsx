@@ -1,43 +1,45 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { Card } from "react-native-paper";
 import { Movie } from "../interface/Movie";
 
-type MovieCardProps = {
+export type MovieCardProps = {
   movie: Movie;
   layout?: "row" | "tile";
-  onSelect: (id: number) => void;
+  onSelect: (id: string) => void;
 };
+
 const MovieCard = ({ movie, layout = "row", onSelect }: MovieCardProps) => {
-  const isTitle = layout === "title";
+  const isTile = layout === "tile";
   const ratingText = `⭐ ${movie.rating.toFixed(1)}`;
   const statusIcon = movie.isShowing ? "✅" : "❌";
+
   return (
     <TouchableOpacity
       activeOpacity={0.8}
       onPress={() => onSelect(movie.id)}
-      style={[{ marginBottom: 12 }, isTitle && { width: "48%" }]}
+      style={[{ marginBottom: 12 }, isTile && { width: "48%" }]}
     >
       <Card style={{ padding: 8 }}>
         <View
           style={[
             { flexDirection: "row" },
-            isTitle && { flexDirection: "column" },
+            isTile && { flexDirection: "column" },
           ]}
         >
-          <View
-            style={isTitle ? { width: "100%" } : { width: 70, height: 100 }}
-          >
+          {/* Poster */}
+          <View style={isTile ? { width: "100%" } : { width: 70, height: 100 }}>
             <Image
               source={{ uri: movie.poster }}
+              resizeMode="cover"
               style={[
                 { borderRadius: 8, backgroundColor: "#ddd" },
-                isTitle
+                isTile
                   ? { width: "100%", aspectRatio: 2 / 3 }
                   : { width: 70, height: 100 },
               ]}
             />
-            {isTitle && (
+            {isTile && (
               <View
                 style={{
                   position: "absolute",
@@ -57,19 +59,48 @@ const MovieCard = ({ movie, layout = "row", onSelect }: MovieCardProps) => {
               </View>
             )}
           </View>
-          <View style={{ flex: 1 }}>
-            <Text></Text>
+
+          {/* Thông tin */}
+          <View
+            style={[
+              { flex: 1, justifyContent: "center" },
+              isTile ? { marginTop: 8 } : { marginLeft: 12 },
+            ]}
+          >
+            <Text
+              numberOfLines={isTile ? 1 : 2}
+              style={{ fontSize: 16, fontWeight: "bold" }}
+            >
+              {movie.title}
+            </Text>
+
+            {!isTile && (
+              <>
+                <Text style={{ color: "#666", marginTop: 2 }}>
+                  {movie.genre}
+                </Text>
+                <Text style={{ color: "#666" }}>Năm: {movie.year}</Text>
+                <Text style={{ marginTop: 4 }}>{ratingText}</Text>
+              </>
+            )}
+
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginTop: 4,
+              }}
+            >
+              <Text>{statusIcon}</Text>
+              <Text style={{ marginLeft: 4, fontSize: 12, color: "#444" }}>
+                {movie.isShowing ? "Đang chiếu" : "Ngừng chiếu"}
+              </Text>
+            </View>
           </View>
-          <Card.Title title={movie.title} />
-          <Card.Content>
-            <Text>{movie.title}</Text>
-          </Card.Content>
         </View>
       </Card>
     </TouchableOpacity>
   );
 };
 
-export default MovieCard;
-
-const styles = StyleSheet.create({});
+export default React.memo(MovieCard);

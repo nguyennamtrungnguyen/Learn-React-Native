@@ -20,7 +20,11 @@ export default function App() {
       <PaperProvider>
         <NavigationContainer>
           <Stack.Navigator initialRouteName="Home">
-            <Stack.Screen name="Home" component={HomeScreen} />
+            <Stack.Screen
+              name="Home"
+              component={HomeScreen}
+              options={{ headerShown: false }}
+            />
             <Stack.Screen name="Profile" component={ProfileScreen} />
             <Stack.Screen name="Movie" component={MovieScreen} />
           </Stack.Navigator>

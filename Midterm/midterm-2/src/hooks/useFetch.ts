@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
 import { useState } from "react";
 
-export const useFetch = (baseUrl: string) => {
+export const useFetch = (baseURL: string) => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -11,7 +11,7 @@ export const useFetch = (baseUrl: string) => {
 
     try {
       const response = await axios({
-        baseUrl: baseUrl,
+        baseURL: baseURL,
         url: url,
         ...options,
         headers: {
