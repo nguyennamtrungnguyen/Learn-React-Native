@@ -1,7 +1,16 @@
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { Card } from "react-native-paper";
-import { Movie } from "../interface/Movie";
+
+export interface Movie {
+  id: number;
+  title: string;
+  genre: string;
+  year: number;
+  rating: number;
+  poster: string;
+  isShowing: boolean;
+}
 
 export type MovieCardProps = {
   movie: Movie;
