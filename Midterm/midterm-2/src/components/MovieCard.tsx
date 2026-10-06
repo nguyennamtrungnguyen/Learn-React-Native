@@ -1,21 +1,12 @@
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { Card } from "react-native-paper";
-
-export interface Movie {
-  id: number;
-  title: string;
-  genre: string;
-  year: number;
-  rating: number;
-  poster: string;
-  isShowing: boolean;
-}
+import { Movie } from "../interface/Movie";
 
 export type MovieCardProps = {
   movie: Movie;
   layout?: "row" | "tile";
-  onSelect: (id: string) => void;
+  onSelect: (id: number) => void;
 };
 
 const MovieCard = ({ movie, layout = "row", onSelect }: MovieCardProps) => {

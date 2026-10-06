@@ -6,7 +6,14 @@ import { Button } from "react-native-paper";
 type Props = NativeStackScreenProps<RootStackParamList, "Home">;
 const HomeScreen = ({ navigation }: Props) => {
   return (
-    <View style={{ flex: 1, justifyContent: "center", gap: 10 }}>
+    <View
+      style={{
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        gap: 10,
+      }}
+    >
       <Text
         style={{
           margin: 40,

@@ -7,12 +7,12 @@ import {
   Text,
   View,
 } from "react-native";
-import React, { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Button } from "react-native-paper";
 import { useFetch } from "../hooks/useFetch";
-import { Movie } from "../interface/Movie";
 import MovieCard from "../components/MovieCard";
+import { Movie } from "../interface/Movie";
 
 const baseURL = "https://697c4082889a1aecfeb1caab.mockapi.io/";
 
@@ -36,12 +36,12 @@ const MovieScreen = () => {
 
   const onRefresh = async () => {
     setRefreshing(true);
-    await handleFetch(); // giữ nguyên chế độ 1/2 cột
+    await handleFetch();
     setRefreshing(false);
   };
 
   const handleSelect = useCallback(
-    (id: string) => {
+    (id: number) => {
       const m = movies.find((x) => x.id === id);
       if (m) Alert.alert("Phim", m.title);
     },
@@ -112,7 +112,7 @@ const MovieScreen = () => {
                 <MovieCard
                   movie={item}
                   layout={isTile ? "tile" : "row"}
-                  onSelect={handleSelect}
+                  onSelect={() => handleSelect}
                 />
               )}
               refreshControl={
