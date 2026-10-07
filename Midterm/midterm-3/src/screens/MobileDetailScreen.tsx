@@ -11,7 +11,7 @@ type Props = NativeStackScreenProps<RootStackParamList, "MovieDetail">;
 const baseURL = "https://697c4082889a1aecfeb1caab.mockapi.io/";
 
 const MovieDetailScreen = ({ route }: Props) => {
-  const { movieId } = route.params;
+  const { id } = route.params;
 
   const { get, isLoading, error } = useFetch(baseURL);
 
@@ -19,7 +19,7 @@ const MovieDetailScreen = ({ route }: Props) => {
 
   useEffect(() => {
     const fetchMovie = async () => {
-      const res = await get(`/movies/${movieId}`);
+      const res = await get(`/movies/${id}`);
 
       if (res) {
         setMovie(res);
@@ -27,7 +27,7 @@ const MovieDetailScreen = ({ route }: Props) => {
     };
 
     fetchMovie();
-  }, [movieId]);
+  }, [id]);
 
   if (isLoading) {
     return (

@@ -7,30 +7,35 @@ import {
   Text,
   View,
 } from "react-native";
-import React, { lazy, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useFetch } from "../hooks/useFetch";
 import { Movie } from "../interface/Movie";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Button, Switch } from "react-native-paper";
+import { Switch } from "react-native-paper";
 import MovieCard from "../components/MovieCard";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../App";
+
 type Props = NativeStackScreenProps<RootStackParamList, "Movie">;
+
 const baseURL = "https://697c4082889a1aecfeb1caab.mockapi.io/";
+
 const MovieScreen = ({ navigation }: Props) => {
   const { isLoading, error, get } = useFetch(baseURL);
   const [isTile, setIsTile] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
-  const limit = 5;
-  const [page, setPage] = useState(1);
   const [movies, setMovies] = useState<Movie[]>([]);
   const numcolumns = isTile ? 2 : 1;
   const handleFetch = async () => {
-    const res = await get(`/movies?page=${page}&limit=${limit}`); // phan trang
-    if (res) setMovies(res);
-  };
+    const res = await get("/movies");
 
+    if (res) {
+      setMovies(res);
+    }
+  };
   useEffect(() => {
     handleFetch();
-  }, [page]);
+  }, []);
 
   const onRefresh = async () => {
     setRefreshing(true);
@@ -41,7 +46,7 @@ const MovieScreen = ({ navigation }: Props) => {
   const handleSelect = useCallback(
     (id: string) => {
       navigation.navigate("MovieDetail", {
-        movieId: id,
+        id,
       });
     },
     [navigation],
@@ -72,7 +77,7 @@ const MovieScreen = ({ navigation }: Props) => {
           Lỗi : {error}
         </Text>
       )}
-      ;
+
       {isLoading && !refreshing ? (
         <View>
           <Text>Đang tải dữ liệu...</Text>
@@ -83,7 +88,7 @@ const MovieScreen = ({ navigation }: Props) => {
           <FlatList
             key={String(numcolumns)}
             data={movies}
-            keyExtractor={(item) => item.id}
+            keyExtractor={(item) => item.id.toString()}
             numColumns={numcolumns}
             columnWrapperStyle={
               isTile ? { justifyContent: "space-between" } : undefined
@@ -100,30 +105,6 @@ const MovieScreen = ({ navigation }: Props) => {
               <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
             }
           />
-          <View
-            style={{
-              flexDirection: "row",
-              justifyContent: "center",
-              gap: 10,
-            }}
-          >
-            <Button
-              mode="contained"
-              disabled={page === -1}
-              onPress={() => setPage(page - 1)}
-              buttonColor="gray"
-            >
-              ---Quay lại---
-            </Button>
-            <Text style={{ fontSize: 20 }}>{page}</Text>
-            <Button
-              mode="contained"
-              onPress={() => setPage(page + 1)}
-              buttonColor="gray"
-            >
-              ---Tiếp theo---
-            </Button>
-          </View>
         </View>
       )}
     </SafeAreaView>
