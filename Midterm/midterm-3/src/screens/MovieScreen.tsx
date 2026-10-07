@@ -1,111 +1,91 @@
+import React, { useEffect, useState } from "react";
 import {
   ActivityIndicator,
-  Alert,
   FlatList,
   RefreshControl,
   StyleSheet,
   Text,
   View,
 } from "react-native";
-import { useCallback, useEffect, useState } from "react";
-import { useFetch } from "../hooks/useFetch";
-import { Movie } from "../interface/Movie";
-import { SafeAreaView } from "react-native-safe-area-context";
+
 import { Switch } from "react-native-paper";
-import MovieCard from "../components/MovieCard";
+import { SafeAreaView } from "react-native-safe-area-context";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../App";
+import { Movie } from "../interface/Movie";
+import { useFetch } from "../hooks/useFetch";
+import MovieCard from "../components/MovieCard";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Movie">;
-
 const baseURL = "https://697c4082889a1aecfeb1caab.mockapi.io/";
-
 const MovieScreen = ({ navigation }: Props) => {
-  const { isLoading, error, get } = useFetch(baseURL);
+  const { get, isLoading, error } = useFetch(baseURL);
+  const [movies, setMovies] = useState<Movie[]>([]);
   const [isTile, setIsTile] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
-  const [movies, setMovies] = useState<Movie[]>([]);
-  const numcolumns = isTile ? 2 : 1;
-  const handleFetch = async () => {
-    const res = await get("/movies");
 
+  const fetchMovies = async () => {
+    const res = await get("/movies");
+    console.log("MOVIES:", res);
     if (res) {
       setMovies(res);
     }
   };
+
   useEffect(() => {
-    handleFetch();
+    fetchMovies();
   }, []);
 
-  const onRefresh = async () => {
+  const refreshMovies = async () => {
     setRefreshing(true);
-    await handleFetch();
+    await fetchMovies();
     setRefreshing(false);
   };
 
-  const handleSelect = useCallback(
-    (id: string) => {
-      navigation.navigate("MovieDetail", {
-        id,
-      });
-    },
-    [navigation],
-  );
+  const selectMovie = (id: string) => {
+    navigation.navigate("MovieDetail", {
+      id,
+    });
+  };
+
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: "#4b2525" }}>
-      <View
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "flex-end",
-          paddingHorizontal: 12,
-          marginBottom: 8,
-        }}
-      >
-        <Text style={{ marginRight: 8 }}>Dạng Lưới</Text>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.switchContainer}>
+        <Text>Dạng lưới</Text>
         <Switch value={isTile} onValueChange={setIsTile} />
       </View>
-      {error && (
-        <Text
-          style={{
-            fontSize: 20,
-            textAlign: "center",
-            fontWeight: "bold",
-            color: "red",
-          }}
-        >
-          Lỗi : {error}
-        </Text>
-      )}
+
+      {error && <Text style={styles.error}>Lỗi: {error}</Text>}
 
       {isLoading && !refreshing ? (
-        <View>
+        <View style={styles.center}>
+          <ActivityIndicator size="large" />
           <Text>Đang tải dữ liệu...</Text>
-          <ActivityIndicator size={"large"} animating={true} />
         </View>
       ) : (
-        <View>
-          <FlatList
-            key={String(numcolumns)}
-            data={movies}
-            keyExtractor={(item) => item.id.toString()}
-            numColumns={numcolumns}
-            columnWrapperStyle={
-              isTile ? { justifyContent: "space-between" } : undefined
-            }
-            contentContainerStyle={{ paddingHorizontal: 12, paddingBottom: 12 }}
-            renderItem={({ item }) => (
-              <MovieCard
-                movie={item}
-                layout={isTile ? "tile" : "row"}
-                onSelect={handleSelect}
-              />
-            )}
-            refreshControl={
-              <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-            }
-          />
-        </View>
+        <FlatList
+          style={styles.list}
+          key={isTile ? "grid" : "list"}
+          data={movies}
+          keyExtractor={(item) => item.id}
+          numColumns={isTile ? 2 : 1}
+          columnWrapperStyle={
+            isTile ? { justifyContent: "space-between" } : undefined
+          }
+          contentContainerStyle={{
+            padding: 12,
+          }}
+          renderItem={({ item }) => (
+            <MovieCard
+              movie={item}
+              layout={isTile ? "tile" : "row"}
+              onSelect={selectMovie}
+            />
+          )}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={refreshMovies} />
+          }
+        />
       )}
     </SafeAreaView>
   );
@@ -113,4 +93,32 @@ const MovieScreen = ({ navigation }: Props) => {
 
 export default MovieScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+
+  center: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+
+  list: {
+    flex: 1,
+  },
+
+  error: {
+    color: "red",
+    textAlign: "center",
+    fontSize: 18,
+    margin: 10,
+  },
+
+  switchContainer: {
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    alignItems: "center",
+    padding: 10,
+  },
+});

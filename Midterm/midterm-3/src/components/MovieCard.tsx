@@ -1,5 +1,5 @@
-import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
+import { Image, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { Card } from "react-native-paper";
 import { Movie } from "../interface/Movie";
 
@@ -8,82 +8,29 @@ export type MovieCardProps = {
   layout?: "row" | "tile";
   onSelect: (id: string) => void;
 };
+
 const MovieCard = ({ movie, layout = "row", onSelect }: MovieCardProps) => {
   const isTile = layout === "tile";
-  const ratingText = `⭐ ${movie.rating.toFixed(1)}`;
-  const statusIcon = movie.isShowing ? "✅" : "❌";
+
   return (
     <TouchableOpacity
-      activeOpacity={0.8}
       onPress={() => onSelect(movie.id)}
-      style={[{ marginBottom: 12 }, isTile && { width: "48%" }]}
+      style={[styles.container, isTile && styles.tile]}
     >
-      <Card style={{ padding: 8 }}>
-        <View
-          style={[
-            { flexDirection: "row" },
-            isTile && { flexDirection: "column" },
-          ]}
-        >
-          <View style={isTile ? { width: "100%" } : { width: 70, height: 100 }}>
-            <Image
-              source={{ uri: movie.poster }}
-              resizeMode="cover"
-              style={[
-                { borderRadius: 8, backgroundColor: "#ddd" },
-                isTile
-                  ? { width: "100%", aspectRatio: 2 / 3 }
-                  : { width: 70, height: 100 },
-              ]}
-            />
-            {isTile && (
-              <View
-                style={{
-                  position: "absolute",
-                  top: 6,
-                  right: 6,
-                  backgroundColor: "rgba(0,0,0,0.7",
-                  borderRadius: 6,
-                  paddingHorizontal: 6,
-                  paddingVertical: 2,
-                }}
-              >
-                <Text style={{ color: "#fff", fontSize: 12, fontWeight: 600 }}>
-                  {ratingText}
-                </Text>
-              </View>
-            )}
-          </View>
-
-          <View
-            style={[
-              { flex: 1, justifyContent: "center" },
-              isTile ? { marginTop: 8 } : { marginLeft: 12 },
-            ]}
-          >
-            <Text
-              numberOfLines={isTile ? 1 : 2}
-              style={{ fontSize: 16, fontWeight: "bold" }}
-            >
+      <Card style={styles.card}>
+        <View style={[styles.content, isTile && styles.column]}>
+          <Image
+            source={{ uri: movie.poster }}
+            style={[styles.image, isTile && styles.tileImage]}
+          />
+          <View style={styles.info}>
+            <Text numberOfLines={1} style={styles.title}>
               {movie.title}
             </Text>
-            {!isTile && (
-              <View>
-                <Text style={{ color: " #666", marginTop: 2 }}>
-                  {movie.genre}
-                </Text>
-                <Text style={{ color: " #666" }}>Năm: {movie.year}</Text>
-                <Text style={{ marginTop: 4 }}>{ratingText}</Text>
-              </View>
-            )}
-          </View>
-          <View
-            style={{ flexDirection: "row", alignItems: "center", marginTop: 4 }}
-          >
-            <Text>{statusIcon}</Text>
-            <Text style={{ margin: 4, fontSize: 12, color: "#444" }}>
-              {movie.isShowing ? "Đang chiếu" : "Ngừng Chiếu"}
-            </Text>
+            <Text>{movie.genre}</Text>
+            <Text>Năm: {movie.year}</Text>
+            <Text>⭐ {movie.rating.toFixed(1)}</Text>
+            <Text>{movie.isShowing ? "✅ Đang chiếu" : "❌ Ngừng chiếu"}</Text>
           </View>
         </View>
       </Card>
@@ -93,4 +40,47 @@ const MovieCard = ({ movie, layout = "row", onSelect }: MovieCardProps) => {
 
 export default MovieCard;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    width: "100%",
+    marginBottom: 12,
+  },
+
+  tile: {
+    width: "48%",
+  },
+
+  card: {
+    padding: 8,
+  },
+
+  content: {
+    flexDirection: "row",
+  },
+
+  column: {
+    flexDirection: "column",
+  },
+
+  image: {
+    width: 70,
+    height: 100,
+    borderRadius: 8,
+  },
+
+  tileImage: {
+    width: "100%",
+    height: 250,
+  },
+
+  info: {
+    flex: 1,
+    marginLeft: 10,
+    marginTop: 5,
+  },
+
+  title: {
+    fontSize: 16,
+    fontWeight: "bold",
+  },
+});

@@ -8,18 +8,8 @@ type Props = NativeStackScreenProps<RootStackParamList, "Home">;
 const HomeScreen = ({ navigation }: Props) => {
   return (
     <SafeAreaView>
-      <View style={{ flex: 1, gap: 10, justifyContent: "center" }}>
-        <Text
-          style={{
-            margin: 40,
-            color: "blue",
-            textAlign: "center",
-            fontSize: 25,
-            fontWeight: "bold",
-          }}
-        >
-          Chào Mừng Bạn Trở Lại
-        </Text>
+      <View style={styles.container}>
+        <Text style={styles.title}>Chào Mừng Bạn Trở Lại</Text>
         <Button
           mode="contained"
           onPress={() => navigation.navigate("Profile")}
@@ -41,4 +31,17 @@ const HomeScreen = ({ navigation }: Props) => {
 
 export default HomeScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    gap: 10,
+    justifyContent: "center",
+  },
+  title: {
+    margin: 40,
+    color: "blue",
+    textAlign: "center",
+    fontSize: 25,
+    fontWeight: "bold",
+  },
+});

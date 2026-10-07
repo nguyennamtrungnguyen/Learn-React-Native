@@ -1,8 +1,8 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { PaperProvider } from "react-native-paper";
-import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import HomeScreen from "./src/screens/HomeScreen";
 import ProfileScreen from "./src/screens/ProfileScreen";
 import MovieScreen from "./src/screens/MovieScreen";
@@ -21,8 +21,8 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 export default function App() {
   return (
     <SafeAreaProvider style={styles.container}>
-      <SafeAreaView>
-        <PaperProvider>
+      <PaperProvider>
+        <View style={styles.container}>
           <NavigationContainer>
             <Stack.Navigator initialRouteName="Home">
               <Stack.Screen
@@ -35,8 +35,8 @@ export default function App() {
               <Stack.Screen name="MovieDetail" component={MovieDetailScreen} />
             </Stack.Navigator>
           </NavigationContainer>
-        </PaperProvider>
-      </SafeAreaView>
+        </View>
+      </PaperProvider>
     </SafeAreaProvider>
   );
 }

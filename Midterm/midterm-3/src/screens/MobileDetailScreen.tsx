@@ -7,25 +7,17 @@ import { useFetch } from "../hooks/useFetch";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 type Props = NativeStackScreenProps<RootStackParamList, "MovieDetail">;
-
 const baseURL = "https://697c4082889a1aecfeb1caab.mockapi.io/";
-
 const MovieDetailScreen = ({ route }: Props) => {
   const { id } = route.params;
-
   const { get, isLoading, error } = useFetch(baseURL);
-
   const [movie, setMovie] = useState<Movie | null>(null);
 
   useEffect(() => {
     const fetchMovie = async () => {
       const res = await get(`/movies/${id}`);
-
-      if (res) {
-        setMovie(res);
-      }
+      if (res) setMovie(res);
     };
-
     fetchMovie();
   }, [id]);
 
@@ -37,7 +29,6 @@ const MovieDetailScreen = ({ route }: Props) => {
       </View>
     );
   }
-
   if (error) {
     return (
       <View style={styles.center}>
@@ -45,7 +36,6 @@ const MovieDetailScreen = ({ route }: Props) => {
       </View>
     );
   }
-
   if (!movie) {
     return (
       <View style={styles.center}>
@@ -61,15 +51,10 @@ const MovieDetailScreen = ({ route }: Props) => {
         style={styles.poster}
         resizeMode="cover"
       />
-
       <Text style={styles.title}>{movie.title}</Text>
-
       <Text style={styles.info}>Thể loại: {movie.genre}</Text>
-
       <Text style={styles.info}>Năm: {movie.year}</Text>
-
       <Text style={styles.info}>⭐ {movie.rating.toFixed(1)}</Text>
-
       <Text style={styles.info}>
         Trạng thái: {movie.isShowing ? "Đang chiếu" : "Ngừng chiếu"}
       </Text>
