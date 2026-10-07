@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   ActivityIndicator,
   FlatList,
+  Pressable,
   RefreshControl,
   StyleSheet,
   Text,
@@ -23,10 +24,15 @@ const MovieScreen = ({ navigation }: Props) => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [isTile, setIsTile] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
+  const [selectedGenre, setSelectedGenre] = useState("All");
+
+  const filteredMovies =
+    selectedGenre === "All"
+      ? movies
+      : movies.filter((movie) => movie.genre === selectedGenre);
 
   const fetchMovies = async () => {
     const res = await get("/movies");
-    console.log("MOVIES:", res);
     if (res) {
       setMovies(res);
     }
@@ -54,6 +60,27 @@ const MovieScreen = ({ navigation }: Props) => {
         <Text>Dạng lưới</Text>
         <Switch value={isTile} onValueChange={setIsTile} />
       </View>
+      <View style={styles.filterContainer}>
+        {["All", "Action", "Comedy", "Drama"].map((genre) => (
+          <Pressable
+            key={genre}
+            onPress={() => setSelectedGenre(genre)}
+            style={[
+              styles.filterButton,
+              selectedGenre === genre && styles.activeButton,
+            ]}
+          >
+            <Text
+              style={[
+                styles.filterText,
+                selectedGenre === genre && styles.activeText,
+              ]}
+            >
+              {genre}
+            </Text>
+          </Pressable>
+        ))}
+      </View>
 
       {error && <Text style={styles.error}>Lỗi: {error}</Text>}
 
@@ -66,7 +93,7 @@ const MovieScreen = ({ navigation }: Props) => {
         <FlatList
           style={styles.list}
           key={isTile ? "grid" : "list"}
-          data={movies}
+          data={filteredMovies}
           keyExtractor={(item) => item.id}
           numColumns={isTile ? 2 : 1}
           columnWrapperStyle={
@@ -94,6 +121,31 @@ const MovieScreen = ({ navigation }: Props) => {
 export default MovieScreen;
 
 const styles = StyleSheet.create({
+  filterContainer: {
+    flexDirection: "row",
+    padding: 10,
+    gap: 10,
+  },
+
+  filterButton: {
+    paddingHorizontal: 15,
+    paddingVertical: 8,
+    borderRadius: 8,
+    backgroundColor: "#ddd",
+  },
+
+  activeButton: {
+    backgroundColor: "#2196F3",
+  },
+
+  filterText: {
+    color: "#333",
+  },
+
+  activeText: {
+    color: "#fff",
+    fontWeight: "bold",
+  },
   container: {
     flex: 1,
   },
