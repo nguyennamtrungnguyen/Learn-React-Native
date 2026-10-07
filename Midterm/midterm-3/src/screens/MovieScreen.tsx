@@ -13,9 +13,9 @@ import { Movie } from "../interface/Movie";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Button, Switch } from "react-native-paper";
 import MovieCard from "../components/MovieCard";
-
+type Props = NativeStackScreenProps<RootStackParamList, "Movie">;
 const baseURL = "https://697c4082889a1aecfeb1caab.mockapi.io/";
-const MovieScreen = () => {
+const MovieScreen = ({ navigation }: Props) => {
   const { isLoading, error, get } = useFetch(baseURL);
   const [isTile, setIsTile] = useState(false);
   const [refreshing, setRefreshing] = useState(false);
@@ -40,10 +40,11 @@ const MovieScreen = () => {
 
   const handleSelect = useCallback(
     (id: string) => {
-      const m = movies.find((x) => x.id === id);
-      if (m) Alert.alert("Phim", m.title);
+      navigation.navigate("MovieDetail", {
+        movieId: id,
+      });
     },
-    [movies],
+    [navigation],
   );
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#4b2525" }}>
