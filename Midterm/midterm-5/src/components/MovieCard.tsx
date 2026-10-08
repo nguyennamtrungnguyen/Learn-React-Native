@@ -21,13 +21,20 @@ const MovieCard = ({ movie, layout = "row", onSelect }: MovieCardProps) => {
             style={[styles.image, isTile && styles.tileImage]}
             source={{ uri: movie.poster }}
           />
+          {isTile && (
+            <Text
+              style={{ position: "absolute", top: 6, right: 6, color: "white" }}
+            >
+              ⭐{movie.rating.toFixed(1)}
+            </Text>
+          )}
           <View style={styles.info}>
             <Text numberOfLines={1} style={styles.title}>
               {movie.title}
             </Text>
             <Text>Thể loại: {movie.genre}</Text>
             <Text>Năm: {movie.year}</Text>
-            <Text>⭐{movie.rating.toFixed(1)}</Text>
+            {!isTile && <Text>⭐{movie.rating.toFixed(1)}</Text>}
             <Text>{movie.isShowing ? "Đang chiếu✅" : "Ngừng Chiếu❌"}</Text>
           </View>
         </View>
