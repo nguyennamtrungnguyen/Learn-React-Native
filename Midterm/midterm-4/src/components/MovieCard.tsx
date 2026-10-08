@@ -19,18 +19,23 @@ const MovieCard = ({ movie, layout = "row", onSelect }: Props) => {
     >
       <Card style={styles.card}>
         <View style={[styles.content, isTile && styles.column]}>
-          <Image
-            source={{ uri: movie.poster }}
-            style={[styles.image, isTile && styles.tileImage]}
-          />
+          <View>
+            <Image
+              source={{ uri: movie.poster }}
+              style={[styles.image, isTile && styles.tileImage]}
+            />
+            {isTile && (
+              <Text style={styles.rating}>⭐ {movie.rating.toFixed(1)}</Text>
+            )}
+          </View>
           <View style={styles.info}>
             <Text numberOfLines={1} style={styles.title}>
               {movie.title}
             </Text>
             <Text>{movie.genre}</Text>
             <Text>Năm: {movie.year}</Text>
-            <Text>⭐ {movie.rating.toFixed(1)}</Text>
-            <Text>{movie.isShowing ? "Đang chiếu ✅" : "Ngừng chiếu ❌"}</Text>
+            {!isTile && <Text>⭐ {movie.rating.toFixed(1)}</Text>}
+            <Text>{movie.isShowing ? "Đang chiếu ✅" : "Ngừng chiếu ❌"} </Text>
           </View>
         </View>
       </Card>
@@ -66,7 +71,9 @@ const styles = StyleSheet.create({
     width: 70,
     height: 100,
     borderRadius: 8,
+    position: "relative",
   },
+  rating: { position: "absolute", right: 10, top: 10, color: "white" },
   info: {
     flex: 1,
     marginLeft: 10,

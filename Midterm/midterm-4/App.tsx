@@ -23,11 +23,7 @@ export default function App() {
         <View style={styles.container}>
           <NavigationContainer>
             <Stack.Navigator initialRouteName="Home">
-              <Stack.Screen
-                options={{ headerShown: false }}
-                name="Home"
-                component={HomeScreen}
-              />
+              <Stack.Screen name="Home" component={HomeScreen} />
               <Stack.Screen name="Profile" component={ProfileScreen} />
               <Stack.Screen name="MovieDetail" component={MovieDetailScreen} />
               <Stack.Screen name="Movie" component={MovieScreen} />
