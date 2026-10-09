@@ -9,7 +9,7 @@ type MovieCardProps = {
   onSelect: (id: string) => void;
 };
 const MovieCard = ({ movie, layout = "row", onSelect }: MovieCardProps) => {
-  const isTile = layout === "row";
+  const isTile = layout === "isTile";
   return (
     <TouchableOpacity
       onPress={() => onSelect(movie.id)}

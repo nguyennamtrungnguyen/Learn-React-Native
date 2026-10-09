@@ -41,7 +41,7 @@ const MovieScreen = () => {
   };
 
   const handleSelect = useCallback(
-    (id: number) => {
+    (id: string) => {
       const m = movies.find((x) => x.id === id);
       if (m) Alert.alert("Phim", m.title);
     },

@@ -1,5 +1,5 @@
 export interface Movie {
-  id: number;
+  id: string;
   title: string;
   genre: string;
   year: number;
@@ -7,4 +7,3 @@ export interface Movie {
   poster: string;
   isShowing: boolean;
 }
-
