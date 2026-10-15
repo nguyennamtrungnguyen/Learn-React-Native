@@ -23,25 +23,49 @@ export default function TourScreen() {
   const [refreshing, setRefreshing] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
 
-  const fetchTours = useCallback(async () => {
+  const loadToursData = useCallback(async () => {
     try {
-      setLoadError(null);
       const response = await fetch(API_URL);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
       const data: unknown = await response.json();
       if (!Array.isArray(data)) throw new Error('Dữ liệu tour không hợp lệ');
+      setLoadError(null);
       setTours(data as Tour[]);
     } catch {
       setLoadError('Không thể tải danh sách tour. Vui lòng thử làm mới.');
-    } finally {
-      setIsLoading(false);
     }
   }, []);
 
   useEffect(() => {
-    void fetchTours();
-  }, [fetchTours]);
+    let ignore = false;
+
+    fetch(API_URL)
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
+      .then((data: unknown) => {
+        if (!ignore && Array.isArray(data)) {
+          setLoadError(null);
+          setTours(data as Tour[]);
+        }
+      })
+      .catch(() => {
+        if (!ignore) {
+          setLoadError('Không thể tải danh sách tour. Vui lòng thử làm mới.');
+        }
+      })
+      .finally(() => {
+        if (!ignore) {
+          setIsLoading(false);
+        }
+      });
+
+    return () => {
+      ignore = true;
+    };
+  }, []);
 
   const filteredTours = useMemo(() => {
     const searchTerm = searchText.trim().toLocaleLowerCase();
@@ -60,9 +84,9 @@ export default function TourScreen() {
 
   const refreshTours = useCallback(async () => {
     setRefreshing(true);
-    await fetchTours();
+    await loadToursData();
     setRefreshing(false);
-  }, [fetchTours]);
+  }, [loadToursData]);
 
   const toggleFavorite = useCallback(async (id: string, next: boolean) => {
     let previous: boolean | undefined;
