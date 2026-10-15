@@ -7,10 +7,19 @@ import {
   View,
 } from 'react-native';
 import type { GestureResponderEvent } from 'react-native';
-import type { Tour } from '../interfaces/Tour';
 import { formatDate, getSeatLabel } from '../utils/tour';
 
-export type { Tour } from '../interfaces/Tour';
+export interface Tour {
+  id: string;
+  name: string;
+  city: string;
+  days: number;
+  price: number;
+  seats: number;
+  departure: string;
+  image: string;
+  isFavorite: boolean;
+}
 
 export interface TourItemProps {
   tour: Tour;

@@ -23,11 +23,9 @@ export default function TourScreen() {
   const [refreshing, setRefreshing] = useState(false);
   const [loadError, setLoadError] = useState<string | null>(null);
 
-  const fetchTours = useCallback(async (showLoading = true) => {
-    if (showLoading) setIsLoading(true);
-    setLoadError(null);
-
+  const fetchTours = useCallback(async () => {
     try {
+      setLoadError(null);
       const response = await fetch(API_URL);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
@@ -62,39 +60,41 @@ export default function TourScreen() {
 
   const refreshTours = useCallback(async () => {
     setRefreshing(true);
-    await fetchTours(false);
+    await fetchTours();
     setRefreshing(false);
   }, [fetchTours]);
 
-  const toggleFavorite = useCallback(
-    async (id: string, next: boolean) => {
-      const previous = tours.find((tour) => tour.id === id)?.isFavorite;
-      if (previous === undefined) return;
+  const toggleFavorite = useCallback(async (id: string, next: boolean) => {
+    let previous: boolean | undefined;
 
-      setTours((currentTours) =>
-        currentTours.map((tour) =>
-          tour.id === id ? { ...tour, isFavorite: next } : tour,
-        ),
-      );
+    setTours((currentTours) =>
+      currentTours.map((tour) => {
+        if (tour.id === id) {
+          previous = tour.isFavorite;
+          return { ...tour, isFavorite: next };
+        }
+        return tour;
+      }),
+    );
 
-      try {
-        const response = await fetch(`${API_URL}/${encodeURIComponent(id)}`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ isFavorite: next }),
-        });
-        if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      } catch {
+    try {
+      const response = await fetch(`${API_URL}/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ isFavorite: next }),
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    } catch {
+      if (previous !== undefined) {
         setTours((currentTours) =>
           currentTours.map((tour) =>
-            tour.id === id ? { ...tour, isFavorite: previous } : tour,
+            tour.id === id ? { ...tour, isFavorite: previous! } : tour,
           ),
         );
-        Alert.alert('Không thể cập nhật', 'Vui lòng kiểm tra kết nối và thử lại.');
       }
-    },
-    [tours],
-  );
+      Alert.alert('Không thể cập nhật', 'Vui lòng kiểm tra kết nối và thử lại.');
+    }
+  }, []);
 
   const showTourDetails = useCallback((tour: Tour) => {
     Alert.alert(

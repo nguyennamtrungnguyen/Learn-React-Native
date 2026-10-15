@@ -24,8 +24,8 @@ describe('TourItem', () => {
     onToggleFavorite.mockClear();
   });
 
-  it('hides the city in compact mode and displays it in the regular layout', () => {
-    const compact = render(
+  it('hides the city in compact mode and displays it in the regular layout', async () => {
+    const compact = await render(
       <TourItem
         tour={tour}
         compact
@@ -34,9 +34,9 @@ describe('TourItem', () => {
       />,
     );
     expect(compact.queryByText('Đà Lạt')).toBeNull();
-    compact.unmount();
+    await compact.unmount();
 
-    const regular = render(
+    const regular = await render(
       <TourItem
         tour={tour}
         onPress={onPress}
@@ -46,8 +46,8 @@ describe('TourItem', () => {
     expect(regular.getByText('Đà Lạt')).toBeTruthy();
   });
 
-  it('toggles the favorite without opening the tour', () => {
-    const { getByTestId } = render(
+  it('toggles the favorite without opening the tour', async () => {
+    const { getByTestId } = await render(
       <TourItem
         tour={tour}
         onPress={onPress}
@@ -62,8 +62,8 @@ describe('TourItem', () => {
     expect(onPress).not.toHaveBeenCalled();
   });
 
-  it('opens the selected tour when its card is pressed', () => {
-    const { getByText } = render(
+  it('opens the selected tour when its card is pressed', async () => {
+    const { getByText } = await render(
       <TourItem
         tour={tour}
         onPress={onPress}
