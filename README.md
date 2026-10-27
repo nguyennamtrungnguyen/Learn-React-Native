@@ -18,8 +18,8 @@ This repository contains exercises, assignments, and practice projects completed
 
 - Weekly exercises
 - Lab assignments
-- Practice projects
+- Practice projectsm
 - Course-related experiments and implementations
 
-This repository serves as a record of learning progress and practical experience in mobile application development with React Native.https://drive.google.com/drive/folders/120USFNFJAefQ1_h9UrPe1nyHqlgQXkUe?usp=sharing
+This repository serves as a record of learning progress and practical experience in mobile application development with React Native.
 
