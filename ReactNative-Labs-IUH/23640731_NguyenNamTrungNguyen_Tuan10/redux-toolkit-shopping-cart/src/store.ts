@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import cartReducer from './slices/cartSlice';
 import level1CartReducer from './slices/level1CartSlice';
+import level2CartReducer from './slices/level2CartSlice';
 
 const store = configureStore({
   reducer: {
     cart: cartReducer,
     level1Cart: level1CartReducer,
+    level2Cart: level2CartReducer,
   },
 });
 
