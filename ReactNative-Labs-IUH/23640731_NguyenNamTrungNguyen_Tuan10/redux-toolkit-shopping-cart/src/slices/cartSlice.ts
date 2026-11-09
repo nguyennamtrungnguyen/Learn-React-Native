@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { RootState } from '../store';
+import { storage } from '../utils/storage';
 
 export interface CartItem {
   id: number;
@@ -10,81 +10,89 @@ export interface CartItem {
 
 interface CartState {
   items: CartItem[];
+  discountCode: string | null;
+  taxRate: number; // 10% = 0.1
+  shippingCost: number;
 }
 
 const initialState: CartState = {
-  items: [],
+  items: storage.getItemSync<CartItem[]>([]),
+  discountCode: null,
+  taxRate: 0.1,
+  shippingCost: 10,
 };
 
 const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    // Thêm sản phẩm (kiểm tra nếu đã có)
+    // Khôi phục dữ liệu từ AsyncStorage trên thiết bị di động
+    hydrateCart: (state, action: PayloadAction<CartItem[]>) => {
+      state.items = action.payload;
+    },
+
     addToCart: (state, action: PayloadAction<Omit<CartItem, 'quantity'>>) => {
       const existingItem = state.items.find(
         (item) => item.id === action.payload.id
       );
 
       if (existingItem) {
-        // Nếu sản phẩm đã có → tăng số lượng
         existingItem.quantity += 1;
       } else {
-        // Nếu chưa có → thêm mới với quantity = 1
-        state.items.push({
-          ...action.payload,
-          quantity: 1,
-        });
+        state.items.push({ ...action.payload, quantity: 1 });
       }
+
+      // Lưu vào LocalStorage / AsyncStorage
+      storage.setItem(state.items);
     },
 
-    // Tăng số lượng
     increaseQuantity: (state, action: PayloadAction<number>) => {
       const item = state.items.find((item) => item.id === action.payload);
       if (item) {
         item.quantity += 1;
       }
+      storage.setItem(state.items);
     },
 
-    // Giảm số lượng
     decreaseQuantity: (state, action: PayloadAction<number>) => {
       const item = state.items.find((item) => item.id === action.payload);
       if (item && item.quantity > 1) {
         item.quantity -= 1;
       }
+      storage.setItem(state.items);
     },
 
-    // Xóa sản phẩm
     removeFromCart: (state, action: PayloadAction<number>) => {
       state.items = state.items.filter((item) => item.id !== action.payload);
+      storage.setItem(state.items);
     },
 
-    // Xóa tất cả
     clearCart: (state) => {
       state.items = [];
+      state.discountCode = null;
+      storage.removeItem();
+    },
+
+    // Áp dụng mã giảm giá
+    applyDiscount: (state, action: PayloadAction<string | null>) => {
+      state.discountCode = action.payload;
+    },
+
+    // Đặt phí vận chuyển
+    setShippingCost: (state, action: PayloadAction<number>) => {
+      state.shippingCost = action.payload;
     },
   },
 });
 
 export default cartSlice.reducer;
 export const {
+  hydrateCart,
   addToCart,
   increaseQuantity,
   decreaseQuantity,
   removeFromCart,
   clearCart,
+  applyDiscount,
+  setShippingCost,
 } = cartSlice.actions;
-
-// Selector: Tính tổng số lượng
-export const selectCartItemCount = (state: RootState) =>
-  state.cart.items.reduce((total, item) => total + item.quantity, 0);
-
-// Selector: Tính tổng tiền
-export const selectCartTotal = (state: RootState) =>
-  state.cart.items.reduce(
-    (total, item) => total + item.price * item.quantity,
-    0
-  );
-
-// Selector: Lấy danh sách items
-export const selectCartItems = (state: RootState) => state.cart.items;
