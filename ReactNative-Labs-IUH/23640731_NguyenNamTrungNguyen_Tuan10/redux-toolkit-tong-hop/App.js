@@ -13,9 +13,15 @@ import { StatusBar } from "expo-status-bar";
 import { Provider } from "react-redux";
 import { store } from "./src/app/store";
 import Lesson1SelectorScreen from "./src/screens/Lesson1SelectorScreen";
+import Lesson2AsyncThunkScreen from "./src/screens/Lesson2AsyncThunkScreen";
 
 const LESSONS = [
   { id: 1, short: "Bài 1: Selector", title: "Bài 1: Selector trong Redux Toolkit" },
+  {
+    id: 2,
+    short: "Bài 2: AsyncThunk",
+    title: "Bài 2: createAsyncThunk trong Redux Toolkit",
+  },
 ];
 
 export default function App() {
@@ -58,6 +64,7 @@ export default function App() {
 
         <View style={styles.body}>
           {activeLesson === 1 && <Lesson1SelectorScreen />}
+          {activeLesson === 2 && <Lesson2AsyncThunkScreen />}
         </View>
       </SafeAreaView>
     </Provider>
