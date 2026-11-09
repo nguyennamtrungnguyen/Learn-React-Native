@@ -1,0 +1,21 @@
+{
+  "name": "redux-toolkit-tong-hop",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.14.0",
+    "@tanstack/react-query": "^5.107.1",
+    "expo": "~58.0.23",
+    "expo-status-bar": "~58.0.4",
+    "react": "19.3.0",
+    "react-native": "0.88.1",
+    "react-redux": "^9.3.1"
+  },
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "web": "expo start --web"
+  },
+  "private": true
+}
