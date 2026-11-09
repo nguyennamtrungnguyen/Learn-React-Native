@@ -14,6 +14,7 @@ import { Provider } from "react-redux";
 import { store } from "./src/app/store";
 import Lesson1SelectorScreen from "./src/screens/Lesson1SelectorScreen";
 import Lesson2AsyncThunkScreen from "./src/screens/Lesson2AsyncThunkScreen";
+import Lesson3CrudThunkScreen from "./src/screens/Lesson3CrudThunkScreen";
 
 const LESSONS = [
   { id: 1, short: "Bài 1: Selector", title: "Bài 1: Selector trong Redux Toolkit" },
@@ -21,6 +22,11 @@ const LESSONS = [
     id: 2,
     short: "Bài 2: AsyncThunk",
     title: "Bài 2: createAsyncThunk trong Redux Toolkit",
+  },
+  {
+    id: 3,
+    short: "Bài 3: CRUD Thunk",
+    title: "Bài 3: CRUD với createAsyncThunk",
   },
 ];
 
@@ -65,6 +71,7 @@ export default function App() {
         <View style={styles.body}>
           {activeLesson === 1 && <Lesson1SelectorScreen />}
           {activeLesson === 2 && <Lesson2AsyncThunkScreen />}
+          {activeLesson === 3 && <Lesson3CrudThunkScreen />}
         </View>
       </SafeAreaView>
     </Provider>
